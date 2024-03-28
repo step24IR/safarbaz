@@ -14,10 +14,8 @@ class HomeController extends Controller
     {
         $cities = City::pluck('name');
         $cities = $cities->merge(Room::groupBy('village')->pluck('village'));
-//        dd($cities);
         $roomImages = RoomImage::inRandomOrder()->limit(7)->get();
         $rooms = Room::latest()->limit(6)->get();
-//        dd(asset(env('ROOM_IMAGES_UPLOAD_PATH').$rooms->first()->images()->first()->image));
 
         return view('home.index' , compact('rooms' , 'roomImages' , 'cities'));
     }

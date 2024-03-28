@@ -64,11 +64,17 @@ class RoomController extends Controller
             })->orWhere('village' , $location);
 
         })->where(DB::raw('capacity + extra_people'), '>=', $request->number_of_person)
-
             ->whereDoesntHave('reservations', function ($query) use ($times) {
-                $query->where('start_time', '<=', $times['start_time'])
-                    ->where('end_time', '>=', $times['end_time'])
-                    ->where('is_pay', 1);
+                $query->where(function ($query) use ($times) {
+                    $query->where('start_time', '<=', $times['start_time'])
+                        ->where('end_time', '>', $times['start_time']);
+                })->orWhere(function ($query) use ($times) {
+                    $query->where('start_time', '<=', $times['end_time'])
+                        ->where('end_time', '>', $times['end_time']);
+                })->orWhere(function ($query) use ($times) {
+                        $query->where('start_time', '<', $times['start_time'])
+                            ->where('end_time', '>', $times['end_time']);
+                    })->where('is_pay', 1);
             })->latest()->paginate(6);
 
         $cities = City::pluck('name');
