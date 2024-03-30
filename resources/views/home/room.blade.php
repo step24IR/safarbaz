@@ -167,7 +167,12 @@
 
     <section class="section contact-section" id="next">
       <div class="container">
-        <div class="row text-right">
+          <div class="row justify-content-center text-center mb-5">
+              <div class="col-md-7">
+                  <h2 class="heading" data-aos="fade-up">اطلاعات اقامتگاه</h2>
+              </div>
+          </div>
+          <div class="row text-right">
             <div class="col-md-7" data-aos="fade-up">
                 <div class="row">
                     <div class="col-md-10 ml-auto">
