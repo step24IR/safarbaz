@@ -14,14 +14,14 @@ return new class extends Migration
         Schema::create('rooms', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->unsignedInteger('scale');
-            $table->unsignedInteger('capacity');
-            $table->unsignedInteger('extra_people');
-            $table->unsignedBigInteger('price_per_extra_people');
-            $table->unsignedBigInteger('price_per_holiday');
-            $table->unsignedBigInteger('price_per_non_holiday');
+            $table->unsignedInteger('scale')->default(0);
+            $table->unsignedInteger('capacity')->default(0);
+            $table->unsignedInteger('extra_people')->default(0);
+            $table->unsignedBigInteger('price_per_extra_people')->default(0);
+            $table->unsignedBigInteger('price_per_holiday')->default(0);
+            $table->unsignedBigInteger('price_per_non_holiday')->default(0);
             $table->foreignId('city_id')->constrained('cities')->onUpdate('cascade')->onDelete('cascade');
-            $table->string('village');
+            $table->string('village')->nullable();
             $table->unsignedInteger('number_of_rooms');
             $table->unsignedInteger('number_of_bedrooms');
             $table->unsignedInteger('number_of_bed_one');
@@ -31,10 +31,10 @@ return new class extends Migration
             $table->unsignedInteger('number_of_tub_bathroom');
             $table->unsignedInteger('number_of_normal_bathroom');
             $table->string('floor');
-            $table->string('textureAndView');
+            $table->string('textureAndView')->nullable();
             $table->string('address');
             $table->boolean('exclusive');
-            $table->text('description');
+            $table->text('description')->nullable();
             $table->timestamps();
             $table->softDeletes();
         });

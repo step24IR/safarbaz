@@ -194,7 +194,7 @@
                                 <li class="mb-4">
                                     <div>
                                         <h5>اطلاعات اصلی اقامتگاه</h5>
-                                        <p class="p-0 m-0">{{$room->scale . 'متر '}} ,{{$room->number_of_rooms. 'اتاق '}} ,{{$room->floor == 0 ? 'همکف' : 'طبقه ی '.$room->floor}}
+                                        <p class="p-0 m-0">{{$room->scale}} ,{{$room->number_of_rooms. 'اتاق '}} ,{{$room->floor == 0 ? 'همکف' : 'طبقه ی '.$room->floor}}
                                             @if($room->exclusive)
                                                 ,دربست
                                             @else
@@ -206,7 +206,7 @@
                                 <li class="mb-4">
                                     <div>
                                         <h5>ظرفیت اقامتگاه</h5>
-                                        <p class="p-0 m-0">{{$room->capacity . ' نفر'}} , {{$room->extra_people ? $room->extra_people . ' نفر اضافه' : ''}} </p>
+                                        <p class="p-0 m-0">{{$room->capacity}} , {{$room->extra_people ?? ''}} </p>
                                     </div>
                                 </li>
                                 <li class="mb-4">
@@ -230,35 +230,41 @@
                                         </p>
                                     </div>
                                 </li>
-                                <li class="mb-4">
-                                    <div>
-                                        <h5>بافت و چشم انداز</h5>
-                                        <p class="p-0 m-0">{{$room->textureAndView}}</p>
-                                    </div>
-                                </li>
+                                @if($room->textureAndView)
+                                    <li class="mb-4">
+                                        <div>
+                                            <h5>بافت و چشم انداز</h5>
+                                            <p class="p-0 m-0">{{$room->textureAndView}}</p>
+                                        </div>
+                                    </li>
+                                @endif
                             </ul>
                             <hr>
                         </p>
-                        <p>
-                            <h3 class="mb-4">توضیحات:</h3>
-                            <p>{!! $room->description !!}</p>
-                            <hr>
-                        </p>
-                        <p>
-                            <h3 class="mb-4">امکانات اقامتگاه:</h3>
-                            <ul class="list-unstyled">
-                                @foreach($facilities as $facility)
-                                    @if($room->facilityValues()->where('facility_id' , $facility->id)->exists())
-                                        <li class="mb-4">
-                                            <div>
-                                                <h5>{{$facility->name}}</h5>
-                                                <p class="p-0 m-0">{{implode("," , $room->facilityValues()->where('facility_id' , $facility->id)->pluck('value')->toArray())}}</p>
-                                            </div>
-                                        </li>
-                                    @endif
-                                @endforeach
-                            </ul>
-                        </p>
+                        @if($room->description)
+                            <p>
+                                <h3 class="mb-4">توضیحات:</h3>
+                                <p>{!! $room->description !!}</p>
+                                <hr>
+                            </p>
+                        @endif
+                        @if($room->facilityValues->count() > 0 )
+                            <p>
+                                <h3 class="mb-4">امکانات اقامتگاه:</h3>
+                                <ul class="list-unstyled">
+                                    @foreach($facilities as $facility)
+                                        @if($room->facilityValues()->where('facility_id' , $facility->id)->exists())
+                                            <li class="mb-4">
+                                                <div>
+                                                    <h5>{{$facility->name}}</h5>
+                                                    <p class="p-0 m-0">{{implode("," , $room->facilityValues()->where('facility_id' , $facility->id)->pluck('value')->toArray())}}</p>
+                                                </div>
+                                            </li>
+                                        @endif
+                                    @endforeach
+                                </ul>
+                            </p>
+                        @endif
                     </div>
                 </div>
             </div>

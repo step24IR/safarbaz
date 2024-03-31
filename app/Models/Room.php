@@ -22,24 +22,77 @@ class Room extends Model
         'address', 'exclusive', 'floor', 'description',
     ];
 
+    protected function Scale():Attribute
+    {
+        return Attribute::make(
+            get: function ($value) {
+                if ($value > 0 && $value)
+                    return number_format($value, 0, '/', ',') . ' متر';
+
+                return 'متراژ نامعلوم';
+            },
+            set: fn($value) => str_replace(',', '', $value),
+        );
+    }
+
+    protected function Capacity():Attribute
+    {
+        return Attribute::make(
+            get : function ($value)
+            {
+                if($value > 0 && $value)
+                    return $value . ' نفر';
+
+                return 'ظرفیت نامعلوم';
+            }
+        );
+    }
+    protected function ExtraPeople():Attribute
+    {
+        return Attribute::make(
+            get : function ($value)
+            {
+                if($value > 0 && $value)
+                    return $value . ' نفر اضافه';
+            }
+        );
+    }
     protected function PricePerExtraPeople():Attribute
     {
         return Attribute::make(
-            get : fn ($value) => number_format($value , 0 , '/' , ',') . ' تومان',
+            get : function ($value)
+            {
+                if($value > 0 && $value)
+                    return number_format($value , 0 , '/' , ',') . ' تومان';
+
+                return 'توافقی';
+            } ,
             set : fn ($value) => str_replace( ',', '', $value),
         );
     }
     protected function PricePerHoliday():Attribute
     {
         return Attribute::make(
-            get : fn ($value) => number_format($value , 0 , '/' , ',') . ' تومان',
+            get : function ($value)
+            {
+                if($value > 0 && $value)
+                    return number_format($value , 0 , '/' , ',') . ' تومان';
+
+                return 'توافقی';
+            } ,
             set : fn ($value) => str_replace( ',', '', $value),
         );
     }
     protected function PricePerNonHoliday():Attribute
     {
         return Attribute::make(
-            get : fn ($value) => number_format($value , 0 , '/' , ',') . ' تومان',
+            get : function ($value)
+            {
+                if($value > 0 && $value)
+                    return number_format($value , 0 , '/' , ',') . ' تومان';
+
+                return 'توافقی';
+            } ,
             set : fn ($value) => str_replace( ',', '', $value),
         );
     }

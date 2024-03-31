@@ -30,12 +30,12 @@ class RoomController extends Controller
     {
         $request->validate([
             'name' => 'required',
-            'scale' => 'required',
-            'capacity' => 'required',
-            'extra_people' => 'required',
-            'price_per_extra_people' => 'required',
-            'price_per_holiday' => 'required',
-            'price_per_non_holiday' => 'required',
+            'scale' => 'nullable',
+            'capacity' => 'nullable',
+            'extra_people' => 'nullable',
+            'price_per_extra_people' => 'nullable',
+            'price_per_holiday' => 'nullable',
+            'price_per_non_holiday' => 'nullable',
             'city_id' => 'required',
             'village' => 'nullable',
             'number_of_rooms' => 'required',
@@ -50,7 +50,7 @@ class RoomController extends Controller
             'address' => 'required',
             'exclusive' => 'nullable',
             'floor' => 'required',
-            'description' => 'required',
+            'description' => 'nullable',
             'images' => 'required'
         ]);
         try
@@ -58,12 +58,12 @@ class RoomController extends Controller
             DB::beginTransaction();
             $room = Room::create([
                 'name' => $request->name,
-                'scale' => $request->scale,
-                'capacity' => $request->capacity,
-                'extra_people' => $request->extra_people,
-                'price_per_extra_people' => $request->price_per_extra_people,
-                'price_per_holiday' => $request->price_per_holiday,
-                'price_per_non_holiday' => $request->price_per_non_holiday,
+                'scale' => $request->scale ?? 0,
+                'capacity' => $request->capacity ?? 0,
+                'extra_people' => $request->extra_people ?? 0,
+                'price_per_extra_people' => $request->price_per_extra_people ?? 0,
+                'price_per_holiday' => $request->price_per_holiday ?? 0,
+                'price_per_non_holiday' => $request->price_per_non_holiday ?? 0,
                 'city_id' => $request->city_id,
                 'village' => $request->village,
                 'number_of_rooms' => $request->number_of_rooms,
@@ -135,12 +135,12 @@ class RoomController extends Controller
             DB::beginTransaction();
             $room->update([
                 'name' => $request->name,
-                'scale' => $request->scale,
-                'capacity' => $request->capacity,
-                'extra_people' => $request->extra_people,
-                'price_per_extra_people' => $request->price_per_extra_people,
-                'price_per_holiday' => $request->price_per_holiday,
-                'price_per_non_holiday' => $request->price_per_non_holiday,
+                'scale' => $request->scale ?? 0,
+                'capacity' => $request->capacity ?? 0,
+                'extra_people' => $request->extra_people ?? 0,
+                'price_per_extra_people' => $request->price_per_extra_people ?? 0,
+                'price_per_holiday' => $request->price_per_holiday ?? 0,
+                'price_per_non_holiday' => $request->price_per_non_holiday ?? 0,
                 'city_id' => $request->city_id,
                 'village' => $request->village,
                 'number_of_rooms' => $request->number_of_rooms,
@@ -158,10 +158,10 @@ class RoomController extends Controller
                 'description' => $request->description,
             ]);
 
+            $room->facilityValues()->delete();
             if($request->has('facilities'))
             {
                 $counter = count($request->facilities['facility_id']);
-                $room->facilityValues()->delete();
                 for ($i = 0; $i < $counter; $i++)
                 {
                     $values = explode(",",$request->facilities['value'][$i]) ;

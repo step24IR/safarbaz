@@ -23,12 +23,12 @@ class RoomRequest extends FormRequest
     {
         return [
             'name' => 'required',
-            'scale' => 'required',
-            'capacity' => 'required',
-            'extra_people' => 'required',
-            'price_per_extra_people' => 'required',
-            'price_per_holiday' => 'required',
-            'price_per_non_holiday' => 'required',
+            'scale' => 'nullable',
+            'capacity' => 'nullable',
+            'extra_people' => 'nullable',
+            'price_per_extra_people' => 'nullable',
+            'price_per_holiday' => 'nullable',
+            'price_per_non_holiday' => 'nullable',
             'city_id' => 'required',
             'village' => 'nullable',
             'number_of_rooms' => 'required',
@@ -43,7 +43,7 @@ class RoomRequest extends FormRequest
             'address' => 'required',
             'exclusive' => 'nullable',
             'floor' => 'required',
-            'description' => 'required',
+            'description' => 'nullable',
         ];
     }
 }
