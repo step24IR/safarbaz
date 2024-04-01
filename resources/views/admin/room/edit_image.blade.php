@@ -1,6 +1,6 @@
-@extends('admin.layouts.admin' , ['sectionName' => 'داشبورد'])
+@extends('admin.layouts.admin' , ['sectionName' => 'ویراش عکس اتاق'])
 
-@section('title' , 'ویراش عکس سوِئیت')
+@section('title' , 'ویراش عکس اتاق')
 
 @section('head')
     <style>

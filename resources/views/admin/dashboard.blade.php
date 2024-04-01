@@ -1,6 +1,6 @@
 @extends('admin.layouts.admin' , ['sectionName' => 'داشبورد'])
 
-@section('title' , 'ایجاد کاربر')
+@section('title' , 'داشبورد')
 
 @section('head')
     <style>

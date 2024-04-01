@@ -51,7 +51,7 @@
                     <div class="navbar-profile">
                         <img class="img-xs rounded-circle"
                              src="{{asset('HomeAssets/images/auth/pic-4.png')}}" alt="">
-                        <p class="mb-0 d-none d-sm-block navbar-profile-name pe-2">name</p>
+                        <p class="mb-0 d-none d-sm-block navbar-profile-name pe-2">{{auth()->user()->name}}</p>
                         <i class="mdi mdi-menu-down d-none d-sm-block"></i>
                     </div>
                 </a>

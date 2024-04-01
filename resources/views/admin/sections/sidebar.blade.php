@@ -13,7 +13,7 @@
                         <span class="count bg-success"></span>
                     </div>
                     <div class="profile-name">
-                        <h5 class="mb-0 font-weight-normal">name</h5>
+                        <h5 class="mb-0 font-weight-normal">{{auth()->user()->name}}</h5>
                         <span>کاربر</span>
                     </div>
                 </div>
@@ -51,7 +51,7 @@
               <span class="menu-icon">
                 <i class="mdi mdi-view-dashboard"></i>
               </span>
-                <span class="menu-title pe-2">داشبورد</span>
+                <span class="menu-title pe-2">{{$sectionName}}</span>
             </a>
         </li>
         @can('see_rooms')

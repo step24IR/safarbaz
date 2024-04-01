@@ -1,4 +1,4 @@
-@extends('admin.layouts.admin' , ['sectionName' => 'داشبورد'])
+@extends('admin.layouts.admin' , ['sectionName' => 'ایجاد رزرو'])
 
 @section('title' , 'ایجاد رزرو')
 
