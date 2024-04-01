@@ -25,7 +25,7 @@ class RoomController extends Controller
         $cities = City::pluck('name');
         $cities = $cities->merge(Room::groupBy('village')->pluck('village'));
 
-        $rooms = Room::latest()->paginate(6);
+        $rooms = Room::latest()->paginate(6)->withQueryString();
         return view('home.rooms' , compact('rooms','cities'));
     }
 
@@ -77,11 +77,19 @@ class RoomController extends Controller
                         $query->where('start_time', '<', $times['start_time'])
                             ->where('end_time', '>', $times['end_time']);
                     })->where('is_pay', 1);
-            })->latest()->paginate(6);
+            })->latest()->paginate(6)->withQueryString();
 
+        session()->put('searchedRooms' , $rooms);
+        return redirect()->route('room.searchedRoom');
+    }
+
+    public function showSearchedRoom()
+    {
         $cities = City::pluck('name');
         $cities = $cities->merge(Room::groupBy('village')->pluck('village'));
-        return view('home.rooms', compact('rooms' , 'cities'));
+
+        $rooms = session('searchedRooms');
+        return view('home.rooms' , compact('rooms','cities'));
     }
 
     public function bookRoom(ReservationRequest $request, ReservationService $reservationService)
