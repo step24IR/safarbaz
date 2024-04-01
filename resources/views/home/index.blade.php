@@ -194,7 +194,7 @@
             <div class="row check-availabilty" data-aos="fade-up" data-aos-offset="-200" id="next">
                 <div class="block-32">
 
-                    <form action="{{route('home.room.search')}}" method="post" id="search">
+                    <form action="{{route('home.room.search')}}" method="get" id="search">
                         @csrf
                         <div class="row">
                             <div class="col-md-4 mb-3 mb-lg-0 col-lg-2 text-right" id="parent-location">

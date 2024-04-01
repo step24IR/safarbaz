@@ -79,20 +79,22 @@ class RoomController extends Controller
                     })->where('is_pay', 1);
             })->latest()->paginate(6)->withQueryString();
 
-        session()->put('searchedRooms' , $rooms);
-
-        return redirect()->route('home.room.searchedRoom');
+        $cities = City::pluck('name');
+        $cities = $cities->merge(Room::groupBy('village')->pluck('village'));
+        return view('home.rooms' , compact('rooms','cities'));
     }
 
-    public function showSearchedRoom()
+    public function showSearchedRoom($rooms)
     {
         $cities = City::pluck('name');
         $cities = $cities->merge(Room::groupBy('village')->pluck('village'));
-
-        $rooms = session('searchedRooms');
-        session()->forget('searchedRooms');
-//        dd($rooms);
-
+//        $rooms = request();
+        dd($rooms);
+//        $rooms = session()->has('searchedRooms') ? session()->forget('searchedRooms') : session('searchedRooms');
+//        if(session()->has('searchedRooms'))
+//        {
+//            $rooms = session('searchedRooms');
+//        }
         return view('home.rooms' , compact('rooms','cities'));
     }
 
