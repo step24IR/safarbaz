@@ -23,12 +23,12 @@ use Illuminate\Support\Facades\Route;
 Route::get('/get-province-cities-list', [AdminHomeController::class, 'getProvinceCitiesList']);
 
 Route::name('home.')->group(function () {
+    Route::get('/rooms/search' , [HomeRoomController::class , 'showSearchedRoom'])->name('room.searchedRoom');
     Route::get('/' , [HomeHomeController::class , 'index'])->name('index');
     Route::get('/posts' , [HomeHomeController::class , 'posts'])->name('posts');
     Route::get('/rooms' , [HomeRoomController::class , 'index'])->name('room.index');
     Route::get('/rooms/{room}' , [HomeRoomController::class , 'show'])->name('room.show');
     Route::post('/rooms/search' , [HomeRoomController::class , 'searchRoom'])->name('room.search');
-    Route::get('/rooms/search' , [HomeRoomController::class , 'showSearchedRoom'])->name('room.searchedRoom');
     Route::post('/rooms/booking' , [HomeRoomController::class , 'bookRoom'])->name('room.book')->middleware(['throttle:2,1']);
 });
 
