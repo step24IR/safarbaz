@@ -9,6 +9,7 @@ use App\Models\Province;
 use App\Models\Room;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\File;
 use Mockery\Exception;
 
 class RoomController extends Controller
@@ -188,7 +189,14 @@ class RoomController extends Controller
 
     public function destroy(Room $room)
     {
+        foreach ($room->images as $image)
+        {
+            if(File::exists(public_path(env('ROOM_IMAGES_UPLOAD_PATH')).$image->image)){
+                File::delete(public_path(env('ROOM_IMAGES_UPLOAD_PATH')).$image->image);
+            }
+        }
         $room->delete();
+
         return back();
     }
 }

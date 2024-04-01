@@ -36,7 +36,6 @@ return new class extends Migration
             $table->boolean('exclusive');
             $table->text('description')->nullable();
             $table->timestamps();
-            $table->softDeletes();
         });
     }
 
