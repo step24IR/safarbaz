@@ -7,6 +7,7 @@ use App\Models\Room;
 use App\Models\RoomImage;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\File;
+use Illuminate\Support\Facades\Storage;
 
 class RoomImageController extends Controller
 {
@@ -15,6 +16,7 @@ class RoomImageController extends Controller
         $imageNames = null;
         foreach ($images as $image) {
             $imageName = generateFileName($image->getClientOriginalName());
+//            Storage::put('images/room', $image);
             $image->move(public_path(env('ROOM_IMAGES_UPLOAD_PATH')), $imageName);
             $imageNames[] = $imageName;
         }
@@ -39,6 +41,7 @@ class RoomImageController extends Controller
         ]);
 
         $fileName = generateFileName($request->add_image->getClientOriginalName());
+//        Storage::putFileAs('images/room', $request->add_image,$fileName);
         $request->add_image->move(public_path(env('ROOM_IMAGES_UPLOAD_PATH')),$fileName);
         $room = Room::findOrFail($request->room_id);
         $room->images()->create([

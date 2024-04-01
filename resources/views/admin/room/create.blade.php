@@ -43,7 +43,8 @@
                 $("#city_id").empty();
             }
         }
-        getCities()
+        getCities();
+        $('#province').on('change' , getCities);
         $("#czContainer").czMore();
 
     </script>
@@ -116,7 +117,7 @@
                         <label for="province">استان:</label>
                         <select class="form-control" name="province" id="province">
                             @foreach($provinces as $province)
-                                <option value="{{$province->id}}" @selected((old('province') == null) ?  $province->id == 11 : old('$province') == $province->id)>{{$province->name}}</option>
+                                <option value="{{$province->id}}" @selected((old('province') == null) ?  ($province->id == 11) : (old('province') == $province->id))>{{$province->name}}</option>
                             @endforeach
                         </select>
                     </div>
@@ -282,7 +283,7 @@
                     </div>
                 </div>
                 <div class="row">
-                    <h3 class="mt-4">امکانات اقامتگاه:</h3 class="my-4">
+                    <h3 class="mt-4">امکانات اقامتگاه:</h3>
                     <p class="mb-4">مقادیر را با ویرگول از هم جدا کنید.</p>
                     <div id="czContainer">
                         <div id="first">

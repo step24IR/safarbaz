@@ -50,7 +50,8 @@
                 $("#city_id").empty();
             }
         }
-        getCities()
+        getCities();
+        $('#province').on('change' , getCities);
         $("#czContainer").czMore();
 
         $('[id^=facility-]').children("#btn-minus").click(function () {
