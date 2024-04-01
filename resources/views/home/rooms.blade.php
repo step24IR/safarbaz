@@ -195,8 +195,7 @@
         <div class="container">
             <div class="row check-availabilty" id="next" data-aos="fade-up" data-aos-offset="-200">
                 <div class="block-32">
-                    <form action="{{route('home.room.search')}}" method="get" id="search">
-                        @csrf
+                    <form action="{{route('home.room.search')}}" id="search">
                         <div class="row">
                             <div class="col-md-4 mb-3 mb-lg-0 col-lg-2 text-right" id="parent-location">
                                 <label for="children" class="font-weight-bold text-black">شهر یا روستا</label>

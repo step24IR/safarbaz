@@ -84,20 +84,6 @@ class RoomController extends Controller
         return view('home.rooms' , compact('rooms','cities'));
     }
 
-    public function showSearchedRoom($rooms)
-    {
-        $cities = City::pluck('name');
-        $cities = $cities->merge(Room::groupBy('village')->pluck('village'));
-//        $rooms = request();
-        dd($rooms);
-//        $rooms = session()->has('searchedRooms') ? session()->forget('searchedRooms') : session('searchedRooms');
-//        if(session()->has('searchedRooms'))
-//        {
-//            $rooms = session('searchedRooms');
-//        }
-        return view('home.rooms' , compact('rooms','cities'));
-    }
-
     public function bookRoom(ReservationRequest $request, ReservationService $reservationService)
     {
         if($reservationService->isRoomTaken($request->all()))
