@@ -80,7 +80,7 @@ class RoomController extends Controller
             })->latest()->paginate(6)->withQueryString();
 
         session()->put('searchedRooms' , $rooms);
-        return redirect()->route('room.searchedRoom');
+        return redirect()->route('home.room.searchedRoom');
     }
 
     public function showSearchedRoom()
