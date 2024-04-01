@@ -244,7 +244,7 @@
                         @if($room->description)
                             <p>
                                 <h3 class="mb-4">توضیحات:</h3>
-                                <p>{!! $room->description !!}</p>
+                                <p class="mr-3">{!! $room->description !!}</p>
                                 <hr>
                             </p>
                         @endif

@@ -63,8 +63,10 @@ class RoomController extends Controller
                 $query->where('name' , $location);
             })->orWhere('village' , $location);
 
-        })->where(DB::raw('capacity + extra_people'), '>=', $request->number_of_person)
-            ->whereDoesntHave('reservations', function ($query) use ($times) {
+        })->where(function ($query) use ($request){
+            $query->where(DB::raw('capacity + extra_people'), '>=', $request->number_of_person)
+            ->orWhere(DB::raw('capacity + extra_people') , 0);
+        })->whereDoesntHave('reservations', function ($query) use ($times) {
                 $query->where(function ($query) use ($times) {
                     $query->where('start_time', '<=', $times['start_time'])
                         ->where('end_time', '>', $times['start_time']);

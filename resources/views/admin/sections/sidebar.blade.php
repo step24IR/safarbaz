@@ -51,7 +51,7 @@
               <span class="menu-icon">
                 <i class="mdi mdi-view-dashboard"></i>
               </span>
-                <span class="menu-title pe-2">{{$sectionName}}</span>
+                <span class="menu-title pe-2">داشبورد</span>
             </a>
         </li>
         @can('see_rooms')
