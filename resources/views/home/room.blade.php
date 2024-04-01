@@ -194,7 +194,7 @@
                                 <li class="mb-4">
                                     <div>
                                         <h5>اطلاعات اصلی اقامتگاه</h5>
-                                        <p class="p-0 m-0">{{$room->scale}} ,{{$room->number_of_rooms. 'اتاق '}} ,{{$room->floor == 0 ? 'همکف' : 'طبقه ی '.$room->floor}}
+                                        <p class="p-0 m-0">{{$room->scale}} ,{{$room->number_of_rooms ?$room->number_of_rooms. 'اتاق ,':''}} {{$room->floor == 0 ? 'همکف' : 'طبقه ی '.$room->floor}}
                                             @if($room->exclusive)
                                                 ,دربست
                                             @else
@@ -206,7 +206,7 @@
                                 <li class="mb-4">
                                     <div>
                                         <h5>ظرفیت اقامتگاه</h5>
-                                        <p class="p-0 m-0">{{$room->capacity}} , {{$room->extra_people ?? ''}} </p>
+                                        <p class="p-0 m-0">{{$room->capacity ?? ''}}  {{$room->extra_people ? ',' . $room->extra_people : ''}} </p>
                                     </div>
                                 </li>
                                 <li class="mb-4">

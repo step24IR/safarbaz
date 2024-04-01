@@ -81,7 +81,7 @@
                     </div>
                     <div class="form-group col-md-3">
                         <label for="scale">متراژ(متر):</label>
-                        <input type="text" name="scale" class="form-control" value="{{$room->scale}}" id="scale" placeholder="متراژ"
+                        <input type="text" name="scale" class="form-control" value="{{$room->getRawOriginal('scale')}}" id="scale" placeholder="متراژ"
                                onkeypress="return (event.charCode !=8 && event.charCode ==0 || (event.charCode >= 48 && event.charCode <= 57))">
                         @error('scale')
                         <div class="error text-danger">{{$message}}</div>
@@ -90,35 +90,35 @@
 
                     <div class="form-group col-md-3">
                         <label for="capacity"> ظرفیت:</label>
-                        <input type="text" name="capacity" class="form-control" id="capacity" value="{{$room->capacity}}" placeholder="ظرفیت">
+                        <input type="text" name="capacity" class="form-control" id="capacity" value="{{$room->getRawOriginal('capacity')}}" placeholder="ظرفیت">
                         @error('capacity')
                         <div class="alert-danger">{{$message}}</div>
                         @enderror
                     </div>
                     <div class="form-group col-md-3">
                         <label for="extra_people"> تعداد افراد اضافه:</label>
-                        <input type="text" name="extra_people" class="form-control" id="extra_people" value="{{$room->extra_people}}" placeholder="تعداد افراد اضافه">
+                        <input type="text" name="extra_people" class="form-control" id="extra_people" value="{{$room->getRawOriginal('extra_people')}}" placeholder="تعداد افراد اضافه">
                         @error('extra_people')
                         <div class="alert-danger">{{$message}}</div>
                         @enderror
                     </div>
                     <div class="form-group col-md-3">
                         <label for="price_per_extra_people"> مبلغ پرداختی برای هر فرد اضافه:</label>
-                        <input type="text" name="price_per_extra_people" class="form-control" id="price_per_extra_people" value="{{$room->price_per_extra_people}}" placeholder="مبلغ پرداختی برای هر فرد اضافه">
+                        <input type="text" name="price_per_extra_people" class="form-control" id="price_per_extra_people" value="{{$room->getRawOriginal('price_per_extra_people')}}" placeholder="مبلغ پرداختی برای هر فرد اضافه">
                         @error('price_per_extra_people')
                         <div class="alert-danger">{{$message}}</div>
                         @enderror
                     </div>
                     <div class="form-group col-md-3">
                         <label for="price_per_holiday"> قیمت روزهای تعطیل:</label>
-                        <input type="text" name="price_per_holiday" class="form-control" id="price_per_holiday" value="{{$room->price_per_holiday}}" placeholder="قیمت روزهای تعطیل">
+                        <input type="text" name="price_per_holiday" class="form-control" id="price_per_holiday" value="{{$room->getRawOriginal('price_per_holiday')}}" placeholder="قیمت روزهای تعطیل">
                         @error('price_per_holiday')
                         <div class="alert-danger">{{$message}}</div>
                         @enderror
                     </div>
                     <div class="form-group col-md-3">
                         <label for="price_per_non_holiday"> قیمت روزهای غیر تعطیل:</label>
-                        <input type="text" name="price_per_non_holiday" class="form-control" id="price_per_non_holiday" value="{{$room->price_per_non_holiday}}" placeholder="قیمت روزهای غیر تعطیل">
+                        <input type="text" name="price_per_non_holiday" class="form-control" id="price_per_non_holiday" value="{{$room->getRawOriginal('price_per_non_holiday')}}" placeholder="قیمت روزهای غیر تعطیل">
                         @error('price_per_non_holiday')
                         <div class="alert-danger">{{$message}}</div>
                         @enderror
