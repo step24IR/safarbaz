@@ -1,4 +1,4 @@
-@extends('home.layouts.home' , ['sectionName' => 'داشبورد'])
+@extends('home.layouts.home' , ['isBlog' => false])
 
 @section('title' , 'خانه')
 
@@ -311,38 +311,18 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col-lg-4 col-md-6 col-sm-6 col-12 post" data-aos="fade-up" data-aos-delay="100">
-
-                    <div class="media media-custom d-block mb-4 h-100">
-                        <a href="#" class="mb-4 d-block"><img src="{{asset('HomeAssets/images/img_1.jpg')}}" alt="Image placeholder" class="img-fluid"></a>
-                        <div class="media-body text-right">
-                            <span class="meta-post">February 26, 2018</span>
-                            <h2 class="mt-0 mb-3"><a href="#">چاپگرها و متون بلکه روزنامه و مجله</a></h2>
-                            <p>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و با استفاده از طراحان گرافیک است، چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است.</p>
+                @foreach($posts as $post)
+                    <div class="col-lg-4 col-md-6 col-sm-6 col-12 post" data-aos="fade-up" data-aos-delay="300">
+                        <div class="media media-custom d-block mb-4 h-100">
+                            <a href="{{route('home.posts.show' , ['post' => $post->id])}}" class="mb-4 d-block"><img src="{{asset(env('BLOG_IMAGES_UPLOAD_PATH').$post->image)}}" alt="Image placeholder" class="img-fluid"></a>
+                            <div class="media-body text-right">
+                                <span class="meta-post">{{verta($post->updated_at)->format('Y-m-d')}}</span>
+                                <h2 class="mt-0 mb-3"><a href="{{route('home.posts.show' , ['post' => $post->id])}}">{{$post->title}}</a></h2>
+                                <p>{!!   \Illuminate\Support\Str::limit($post->text, 90, '...') !!}</p>
+                            </div>
                         </div>
                     </div>
-
-                </div>
-                <div class="col-lg-4 col-md-6 col-sm-6 col-12 post" data-aos="fade-up" data-aos-delay="200">
-                    <div class="media media-custom d-block mb-4 h-100">
-                        <a href="#" class="mb-4 d-block"><img src="{{asset('HomeAssets/images/img_2.jpg')}}" alt="Image placeholder" class="img-fluid"></a>
-                        <div class="media-body text-right">
-                            <span class="meta-post">February 26, 2018</span>
-                            <h2 class="mt-0 mb-3"><a href="#">مجله در ستون و سطرآنچنان که لازم است</a></h2>
-                            <p>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و با استفاده از طراحان گرافیک است، چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 col-sm-6 col-12 post" data-aos="fade-up" data-aos-delay="300">
-                    <div class="media media-custom d-block mb-4 h-100">
-                        <a href="#" class="mb-4 d-block"><img src="{{asset('HomeAssets/images/img_3.jpg')}}" alt="Image placeholder" class="img-fluid"></a>
-                        <div class="media-body text-right">
-                            <span class="meta-post">February 26, 2018</span>
-                            <h2 class="mt-0 mb-3"><a href="#">با استفاده از طراحان گرافیک است</a></h2>
-                            <p>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و با استفاده از طراحان گرافیک است، چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است.</p>
-                        </div>
-                    </div>
-                </div>
+                @endforeach
             </div>
         </div>
     </section>

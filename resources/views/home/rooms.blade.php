@@ -1,6 +1,6 @@
-@extends('home.layouts.home' , ['sectionName' => 'داشبورد'])
+@extends('home.layouts.home' , ['isBlog' => false])
 
-@section('title' , 'اتاق ها')
+@section('title' , 'اقامتگاه ها')
 
 @section('head')
     <style>

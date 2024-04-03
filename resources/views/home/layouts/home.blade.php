@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>hotel</title>
+    <title>@yield('title')</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="" />
     <meta name="keywords" content="" />
@@ -26,7 +26,7 @@
     @yield('head')
 </head>
 <body>
-    @include('home.sections.header')
+    @include('home.sections.header' , ['isBlog' => $isBlog])
 {{--    @if (session()->has('message'))--}}
 {{--        <div class="alert alert-success d-flex justify-content-between" id="message">--}}
 {{--            {{session()->get('message')}}--}}

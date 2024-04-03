@@ -130,5 +130,25 @@
             </div>
         </li>
         @endcan
+        <li class="nav-item menu-items">
+            <a class="nav-link" data-bs-toggle="collapse" href="#cms" aria-expanded="false" aria-controls="cms">
+              <span class="menu-icon">
+                <i class="mdi mdi-android"></i>
+              </span>
+                <span class="menu-title pe-2">CMS</span>
+                <i class="menu-arrow"></i>
+            </a>
+            <div class="collapse" id="cms">
+                <ul class="nav flex-column sub-menu">
+                    <li class="nav-item"> <a class="nav-link" href="{{route('admin.post.index')}}"> نمایش نوشته ها </a></li>
+                    <li class="nav-item"> <a class="nav-link" href="{{route('admin.post.create')}}"> ایجاد نوشته</a></li>
+                    <li class="nav-item"> <a class="nav-link" href="{{route('admin.category.index')}}"> نمایش دسته بندی ها </a></li>
+                    <li class="nav-item"> <a class="nav-link" href="{{route('admin.category.create')}}"> ایجاد دسته بندی</a></li>
+                    <li class="nav-item"> <a class="nav-link" href="{{route('admin.tag.index')}}"> نمایش تگ ها </a></li>
+                    <li class="nav-item"> <a class="nav-link" href="{{route('admin.tag.create')}}"> ایجاد تگ</a></li>
+                    <li class="nav-item"> <a class="nav-link" href="{{route('admin.comment.index')}}"> نمایش کامنت ها </a></li>
+                </ul>
+            </div>
+        </li>
     </ul>
 </nav>
