@@ -26,11 +26,11 @@
                     </div>
                     <hr>
                     <div class="table-responsive">
-                        <table class="table table-bordered text-center">
+                        <table class="table table-bordered text-right">
                             <tbody>
                             <tr class="text-white">
                                 <td>انتشار</td>
-                                <td>{{$post->published}}</td>
+                                <td class="text-right">{{$post->published}}</td class="text-right">
                             </tr>
                             <tr class="text-white">
                                 <td>نویسنده</td>
@@ -48,13 +48,13 @@
                                 <td>دسته بندی</td>
                                 <td>{{$post->category->name}}</td>
                             </tr>
-                            <tr class="text-white">
-                                <td>تصویر شاخص</td>
-                                <td>{{$post->image}}</td>
-                            </tr>
+{{--                            <tr class="text-white">--}}
+{{--                                <td>تصویر شاخص</td>--}}
+{{--                                <td>{{$post->image}}</td>--}}
+{{--                            </tr>--}}
                             <tr class="text-white">
                                 <td>متن</td>
-                                <td>{{$post->text}}</td>
+                                <td>{!! $post->text !!}</td>
                             </tr>
                             </tbody>
                         </table>

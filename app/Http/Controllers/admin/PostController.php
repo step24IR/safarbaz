@@ -67,6 +67,11 @@ class PostController extends Controller
         return view('admin.post.edit' , compact('post','tags' , 'categories'));
     }
 
+    public function show(Post $post)
+    {
+        return view('admin.post.show' , compact('post'));
+    }
+
     public function update(Request $request, Post $post)
     {
         $request->validate([
