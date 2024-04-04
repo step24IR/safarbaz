@@ -41,6 +41,28 @@ class PermissionSeeder extends Seeder
         $permissions[] = Permission::create(['name' => 'edit_reservation','label'=>'ویرایش رزرو']);
         $permissions[] = Permission::create(['name' => 'delete_reservation','label'=>'حذف رزرو']);
 
+        $permissions[] = Permission::create(['name' => 'see_posts','label'=>'دیدن پستها']);
+        $permissions[] = Permission::create(['name' => 'see_show_post','label'=>'نمایش پست']);
+        $permissions[] = Permission::create(['name' => 'create_post','label'=>'ایجاد پست']);
+        $permissions[] = Permission::create(['name' => 'edit_post','label'=>'ویرایش پست']);
+        $permissions[] = Permission::create(['name' => 'delete_post','label'=>'حذف پست']);
+
+        $permissions[] = Permission::create(['name' => 'see_tags','label'=>'دیدن تگها']);
+        $permissions[] = Permission::create(['name' => 'create_tag','label'=>'ایجاد تگ']);
+        $permissions[] = Permission::create(['name' => 'edit_tag','label'=>'ویرایش تگ']);
+        $permissions[] = Permission::create(['name' => 'delete_tag','label'=>'حذف تگ']);
+
+        $permissions[] = Permission::create(['name' => 'see_categories','label'=>'دیدن دسته بندیها']);
+        $permissions[] = Permission::create(['name' => 'see_show_category','label'=>'نمایش دسته بندی']);
+        $permissions[] = Permission::create(['name' => 'create_category','label'=>'ایجاد دسته بندی']);
+        $permissions[] = Permission::create(['name' => 'edit_category','label'=>'ویرایش دسته بندی']);
+        $permissions[] = Permission::create(['name' => 'delete_category','label'=>'حذف دسته بندی']);
+
+        $permissions[] = Permission::create(['name' => 'see_comments','label'=>'دیدن دیدگاهها']);
+        $permissions[] = Permission::create(['name' => 'see_show_comment','label'=>'نمایش دیدگاه']);
+        $permissions[] = Permission::create(['name' => 'change_approve_comment','label'=>'تایید دیدگاه']);
+        $permissions[] = Permission::create(['name' => 'delete_comment','label'=>'حذف دیدگاه']);
+
         Role::create(['name' => 'user']);
         $role = Role::create(['name' => 'admin']);
         foreach ($permissions as $permission) {

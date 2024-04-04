@@ -103,8 +103,12 @@
                                     <th class="text-white"> # </th>
                                     <th class="text-white"> نام </th>
                                     <th class="text-white"> اسلاگ </th>
+                                    @can('edit_tag')
                                     <th class="text-white"> ویرایش </th>
+                                    @endcan
+                                    @can('delete_tag')
                                     <th class="text-white">حذف</th>
+                                    @endcan
                                 </tr>
                                 </thead>
                                 <tbody>
@@ -113,8 +117,12 @@
                                         <td class="text-white">{{$tags->firstItem() + $key}}</td>
                                         <td class="text-white">{{$tag->name}}</td>
                                         <td class="text-white">{{$tag->slug}}</td>
-                                        <td class="text-white"><a class="btn text-decoration-none" href="{{route('admin.tag.edit',$tag->id)}}"><i class="mdi mdi-autorenew"></i></a></td>
-                                        <td class="text-white"><a href="{{route('admin.tag.destroy',$tag->id)}}" id="open_delete_panel_{{$key}}" class="btn btn-outline-danger" type="button"><i class="mdi mdi-delete"></i></a></td>
+                                        @can('edit_tag')
+                                            <td class="text-white"><a class="btn text-decoration-none" href="{{route('admin.tag.edit',$tag->id)}}"><i class="mdi mdi-autorenew"></i></a></td>
+                                        @endcan
+                                        @can('delete_tag')
+                                            <td class="text-white"><a href="{{route('admin.tag.destroy',$tag->id)}}" id="open_delete_panel_{{$key}}" class="btn btn-outline-danger" type="button"><i class="mdi mdi-delete"></i></a></td>
+                                        @endcan
                                     </tr>
                                 @endforeach
                                 </tbody>

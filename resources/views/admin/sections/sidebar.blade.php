@@ -140,13 +140,27 @@
             </a>
             <div class="collapse" id="cms">
                 <ul class="nav flex-column sub-menu">
-                    <li class="nav-item"> <a class="nav-link" href="{{route('admin.post.index')}}"> نمایش نوشته ها </a></li>
-                    <li class="nav-item"> <a class="nav-link" href="{{route('admin.post.create')}}"> ایجاد نوشته</a></li>
-                    <li class="nav-item"> <a class="nav-link" href="{{route('admin.category.index')}}"> نمایش دسته بندی ها </a></li>
-                    <li class="nav-item"> <a class="nav-link" href="{{route('admin.category.create')}}"> ایجاد دسته بندی</a></li>
-                    <li class="nav-item"> <a class="nav-link" href="{{route('admin.tag.index')}}"> نمایش تگ ها </a></li>
-                    <li class="nav-item"> <a class="nav-link" href="{{route('admin.tag.create')}}"> ایجاد تگ</a></li>
-                    <li class="nav-item"> <a class="nav-link" href="{{route('admin.comment.index')}}"> نمایش کامنت ها </a></li>
+                    @can('see_posts')
+                        <li class="nav-item"> <a class="nav-link" href="{{route('admin.post.index')}}"> نمایش نوشته ها </a></li>
+                        @can('create_post')
+                            <li class="nav-item"> <a class="nav-link" href="{{route('admin.post.create')}}"> ایجاد نوشته</a></li>
+                        @endcan
+                    @endcan
+                    @can('see_categories')
+                        <li class="nav-item"> <a class="nav-link" href="{{route('admin.category.index')}}"> نمایش دسته بندی ها </a></li>
+                        @can('create_category')
+                            <li class="nav-item"> <a class="nav-link" href="{{route('admin.category.create')}}"> ایجاد دسته بندی</a></li>
+                        @endcan
+                    @endcan
+                    @can('see_tags')
+                        <li class="nav-item"> <a class="nav-link" href="{{route('admin.tag.index')}}"> نمایش تگ ها </a></li>
+                        @can('create_tag')
+                            <li class="nav-item"> <a class="nav-link" href="{{route('admin.tag.create')}}"> ایجاد تگ</a></li>
+                        @endcan
+                    @endcan
+                    @can('see_comments')
+                        <li class="nav-item"> <a class="nav-link" href="{{route('admin.comment.index')}}"> نمایش کامنت ها </a></li>
+                    @endcan
                 </ul>
             </div>
         </li>

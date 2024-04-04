@@ -103,9 +103,15 @@
                                     <th class="text-white"> # </th>
                                     <th class="text-white"> نام </th>
                                     <th class="text-white"> ایمیل </th>
-                                    <th class="text-white"> نمایش </th>
-                                    <th class="text-white"> تایید </th>
-                                    <th class="text-white">حذف</th>
+                                    @can('see_show_comment')
+                                        <th class="text-white"> نمایش </th>
+                                    @endcan
+                                    @can('change_approve_comment')
+                                        <th class="text-white"> تایید </th>
+                                    @endcan
+                                    @can('delete_comment')
+                                        <th class="text-white">حذف</th>
+                                    @endcan
                                 </tr>
                                 </thead>
                                 <tbody>
@@ -114,9 +120,15 @@
                                         <td class="text-white">{{$comments->firstItem() + $key}}</td>
                                         <td class="text-white">{{$comment->name}}</td>
                                         <td class="text-white">{{$comment->email}}</td>
-                                        <td class="text-white"><a class="btn text-decoration-none" href="{{route('admin.comment.show',$comment->id)}}"><i class="mdi mdi-eye"></i></a></td>
-                                        <td class="text-white"><a class="btn text-decoration-none" href="{{route('admin.comment.changeApprove',$comment->id)}}">{!!  $comment->approved ? '<span class="text-success">تایید شده<span>' : '<span class="text-danger">تایید نشده<span>'!!}</a></td>
-                                        <td class="text-white"><a href="{{route('admin.comment.destroy',$comment->id)}}" id="open_delete_panel_{{$key}}" class="btn btn-outline-danger" type="button"><i class="mdi mdi-delete"></i></a></td>
+                                        @can('see_show_comment')
+                                            <td class="text-white"><a class="btn text-decoration-none" href="{{route('admin.comment.show',$comment->id)}}"><i class="mdi mdi-eye"></i></a></td>
+                                        @endcan
+                                        @can('change_approve_comment')
+                                            <td class="text-white"><a class="btn text-decoration-none" href="{{route('admin.comment.changeApprove',$comment->id)}}">{!!  $comment->approved ? '<span class="text-success">تایید شده<span>' : '<span class="text-danger">تایید نشده<span>'!!}</a></td>
+                                        @endcan
+                                        @can('delete_comment')
+                                            <td class="text-white"><a href="{{route('admin.comment.destroy',$comment->id)}}" id="open_delete_panel_{{$key}}" class="btn btn-outline-danger" type="button"><i class="mdi mdi-delete"></i></a></td>
+                                        @endcan
                                     </tr>
                                 @endforeach
                                 </tbody>

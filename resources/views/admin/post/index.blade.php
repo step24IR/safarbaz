@@ -103,9 +103,15 @@
                                     <th class="text-white"> # </th>
                                     <th class="text-white"> موضوع </th>
                                     <th class="text-white"> نویسنده </th>
-                                    <th class="text-white"> نمایش </th>
-                                    <th class="text-white"> ویرایش </th>
-                                    <th class="text-white">حذف</th>
+                                    @can('see_show_post')
+                                        <th class="text-white"> نمایش </th>
+                                    @endcan
+                                    @can('edit_post')
+                                        <th class="text-white"> ویرایش </th>
+                                    @endcan
+                                    @can('delete_post')
+                                        <th class="text-white">حذف</th>
+                                    @endcan
                                 </tr>
                                 </thead>
                                 <tbody>
@@ -114,9 +120,15 @@
                                         <td class="text-white">{{$posts->firstItem() + $key}}</td>
                                         <td class="text-white">{{$post->title}}</td>
                                         <td class="text-white">{{$post->user->name}}</td>
-                                        <td class="text-white"><a class="btn text-decoration-none" href="{{route('admin.post.show',$post->id)}}"><i class="mdi mdi-eye"></i></a></td>
-                                        <td class="text-white"><a class="btn text-decoration-none" href="{{route('admin.post.edit',$post->id)}}"><i class="mdi mdi-autorenew"></i></a></td>
-                                        <td class="text-white"><a href="{{route('admin.post.destroy',$post->id)}}" id="open_delete_panel_{{$key}}" class="btn btn-outline-danger" type="button"><i class="mdi mdi-delete"></i></a></td>
+                                        @can('see_show_post')
+                                            <td class="text-white"><a class="btn text-decoration-none" href="{{route('admin.post.show',$post->id)}}"><i class="mdi mdi-eye"></i></a></td>
+                                        @endcan
+                                        @can('edit_post')
+                                            <td class="text-white"><a class="btn text-decoration-none" href="{{route('admin.post.edit',$post->id)}}"><i class="mdi mdi-autorenew"></i></a></td>
+                                        @endcan
+                                        @can('delete_post')
+                                            <td class="text-white"><a href="{{route('admin.post.destroy',$post->id)}}" id="open_delete_panel_{{$key}}" class="btn btn-outline-danger" type="button"><i class="mdi mdi-delete"></i></a></td>
+                                        @endcan
                                     </tr>
                                 @endforeach
                                 </tbody>

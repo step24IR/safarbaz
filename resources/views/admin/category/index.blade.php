@@ -102,9 +102,15 @@
                                 <tr>
                                     <th class="text-white"> # </th>
                                     <th class="text-white"> نام </th>
-                                    <th class="text-white"> نمایش </th>
-                                    <th class="text-white"> ویرایش </th>
-                                    <th class="text-white">حذف</th>
+                                    @can('see_show_category')
+                                        <th class="text-white"> نمایش </th>
+                                    @endcan
+                                    @can('edit_category')
+                                        <th class="text-white"> ویرایش </th>
+                                    @endcan
+                                    @can('delete_category')
+                                        <th class="text-white">حذف</th>
+                                    @endcan
                                 </tr>
                                 </thead>
                                 <tbody>
@@ -112,9 +118,15 @@
                                     <tr>
                                         <td class="text-white">{{$categories->firstItem() + $key}}</td>
                                         <td class="text-white">{{$category->name}}</td>
-                                        <td class="text-white"><a class="btn text-decoration-none" href="{{route('admin.category.show',$category->id)}}"><i class="mdi mdi-eye"></i></a></td>
-                                        <td class="text-white"><a class="btn text-decoration-none" href="{{route('admin.category.edit',$category->id)}}"><i class="mdi mdi-autorenew"></i></a></td>
-                                        <td class="text-white"><a href="{{route('admin.category.destroy',$category->id)}}" id="open_delete_panel_{{$key}}" class="btn btn-outline-danger" type="button"><i class="mdi mdi-delete"></i></a></td>
+                                        @can('see_show_category')
+                                            <td class="text-white"><a class="btn text-decoration-none" href="{{route('admin.category.show',$category->id)}}"><i class="mdi mdi-eye"></i></a></td>
+                                        @endcan
+                                        @can('edit_category')
+                                            <td class="text-white"><a class="btn text-decoration-none" href="{{route('admin.category.edit',$category->id)}}"><i class="mdi mdi-autorenew"></i></a></td>
+                                        @endcan
+                                        @can('delete_category')
+                                            <td class="text-white"><a href="{{route('admin.category.destroy',$category->id)}}" id="open_delete_panel_{{$key}}" class="btn btn-outline-danger" type="button"><i class="mdi mdi-delete"></i></a></td>
+                                        @endcan
                                     </tr>
                                 @endforeach
                                 </tbody>
