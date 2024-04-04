@@ -67,8 +67,17 @@ class PostController extends Controller
         return view('admin.post.edit' , compact('post','tags' , 'categories'));
     }
 
-    public function update(PostRequest $request, Post $post)
+    public function update(Request $request, Post $post)
     {
+        $request->validate([
+            'title' => 'required',
+            'slug' => 'required',
+            'text' => 'required',
+            'image' => 'nullable',
+            'category_id' => 'required',
+            'published' => 'nullable'
+
+        ]);
         try {
             DB::beginTransaction();
 

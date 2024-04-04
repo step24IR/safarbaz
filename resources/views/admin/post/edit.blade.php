@@ -82,7 +82,7 @@
                                 <label for="tag_{{ $tag->id }}" class="form-check-label">
                                     <input type="checkbox" name="tags[]" id="tag_{{ $tag->id }}"
                                            value="{{ $tag->id }}" class="form-check-input"
-                                    @checked(in_array($tag->id , $post->tags))>{{ $tag->label }}
+                                    @checked(in_array($tag->id , $post->tags->pluck('id')->toArray()))>{{ $tag->name }}
                                 </label>
                             </div>
                             @error('tags')
