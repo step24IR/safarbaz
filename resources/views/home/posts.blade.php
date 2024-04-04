@@ -40,8 +40,8 @@
                     <div class="media media-custom d-block mb-4 h-100">
                         <a href="{{route('home.posts.show' , ['post' => $post->id])}}" class="mb-4 d-block"><img src="{{asset(env('BLOG_IMAGES_UPLOAD_PATH').$post->image)}}" alt="Image placeholder" class="img-fluid"></a>
                         <div class="media-body">
-                            <span class="meta-post">{{verta($post->updated_at)->format('Y-m-d')}}</span>
                             <h2 class="mt-0 mb-3"><a href="{{route('home.posts.show' , ['post' => $post->id])}}">{{$post->title}}</a></h2>
+                            <span class="meta-post">{{verta($post->updated_at)->format('Y-m-d')}}</span>
                             <p>{!! \Illuminate\Support\Str::limit($post->text, 90, '...') !!}</p>
                         </div>
                     </div>

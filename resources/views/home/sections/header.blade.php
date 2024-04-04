@@ -28,12 +28,12 @@
                                                         </a>
                                                         <div class="dropdown-menu">
                                                             @foreach($category->children as $childCategory)
-                                                                <a class="{{request()->routeIs('home.posts.category') ? 'active' : ''}}" class="dropdown-item" href="{{route('home.posts.category' , ['category' => $childCategory->slug])}}">{{$childCategory->name}}</a>
+                                                                <a class="{{request()->routeIs('home.posts.category', ['category' => $category->slug]) ? 'active' : ''}}" class="dropdown-item" href="{{route('home.posts.category' , ['category' => $childCategory->slug])}}">{{$childCategory->name}}</a>
                                                             @endforeach
                                                         </div>
                                                     </li>
                                                 @else
-                                                    <li class="{{request()->routeIs('home.posts.category') ? 'active' : ''}}" ><a href="{{route('home.posts.category' , ['category' => $category->slug])}}">{{$category->name}}</a></li>
+                                                    <li class="{{request()->routeIs('home.posts.category', ['category' => $category->slug]) ? 'active' : ''}}" ><a href="{{route('home.posts.category' , ['category' => $category->slug])}}">{{$category->name}}</a></li>
                                                 @endif
                                             @endforeach
                                         @endif
