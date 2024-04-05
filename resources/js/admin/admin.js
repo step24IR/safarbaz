@@ -248,6 +248,46 @@ Title: sidebar
                     }
                 }
             }
+            else if(current === "category"){
+                if(element.attr('href').indexOf('create') === -1 && element.attr('href').indexOf('category') !== -1)
+                {
+                    element.parents('.nav-item').last().addClass('active');
+                    if (element.parents('.sub-menu').length) {
+                        element.closest('.collapse').addClass('show');
+                        element.addClass('active');
+                    }
+                }
+            }
+            else if(current === "tag"){
+                if(element.attr('href').indexOf('create') === -1 && element.attr('href').indexOf('tag') !== -1)
+                {
+                    element.parents('.nav-item').last().addClass('active');
+                    if (element.parents('.sub-menu').length) {
+                        element.closest('.collapse').addClass('show');
+                        element.addClass('active');
+                    }
+                }
+            }
+            else if(current === "post"){
+                if(element.attr('href').indexOf('create') === -1 && element.attr('href').indexOf('post') !== -1)
+                {
+                    element.parents('.nav-item').last().addClass('active');
+                    if (element.parents('.sub-menu').length) {
+                        element.closest('.collapse').addClass('show');
+                        element.addClass('active');
+                    }
+                }
+            }
+            else if(current === "comment"){
+                if(element.attr('href').indexOf('create') === -1 && element.attr('href').indexOf('comment') !== -1)
+                {
+                    element.parents('.nav-item').last().addClass('active');
+                    if (element.parents('.sub-menu').length) {
+                        element.closest('.collapse').addClass('show');
+                        element.addClass('active');
+                    }
+                }
+            }
             else if(current === "create"){
                 var current2 = location.pathname.split("/").slice(-2)[0].replace(/^\/|\/$/g, '');
                 if(current2 === "room"){
@@ -282,6 +322,36 @@ Title: sidebar
                 }
                 else if(current2 === "role"){
                     if (element.attr('href').indexOf('create') !== -1 && element.attr('href').indexOf('role') !== -1)
+                    {
+                        element.parents('.nav-item').last().addClass('active');
+                        if (element.parents('.sub-menu').length) {
+                            element.closest('.collapse').addClass('show');
+                            element.addClass('active');
+                        }
+                    }
+                }
+                else if(current2 === "category"){
+                    if (element.attr('href').indexOf('create') !== -1 && element.attr('href').indexOf('category') !== -1)
+                    {
+                        element.parents('.nav-item').last().addClass('active');
+                        if (element.parents('.sub-menu').length) {
+                            element.closest('.collapse').addClass('show');
+                            element.addClass('active');
+                        }
+                    }
+                }
+                else if(current2 === "tag"){
+                    if (element.attr('href').indexOf('create') !== -1 && element.attr('href').indexOf('tag') !== -1)
+                    {
+                        element.parents('.nav-item').last().addClass('active');
+                        if (element.parents('.sub-menu').length) {
+                            element.closest('.collapse').addClass('show');
+                            element.addClass('active');
+                        }
+                    }
+                }
+                else if(current2 === "post"){
+                    if (element.attr('href').indexOf('create') !== -1 && element.attr('href').indexOf('post') !== -1)
                     {
                         element.parents('.nav-item').last().addClass('active');
                         if (element.parents('.sub-menu').length) {
