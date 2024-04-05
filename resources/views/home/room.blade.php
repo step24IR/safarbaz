@@ -13,6 +13,22 @@
             background: rgba(0,0,0,1);
             transform: translate(-50%, -50%);
         }
+        .image-container
+        {
+            background-color: red;
+            width: 100%;
+            padding-top: 56.25%;
+            position: relative;
+            /*transform: translate(0, -50%);*/
+        }
+        .image-container img
+        {
+            position: absolute;
+            top: 25%;
+            left: 0;
+            bottom: 0;
+            right: 0;
+        }
     </style>
 @endsection
 
@@ -85,6 +101,25 @@
                 $('#message').remove();
             }, 10000);
 
+            let images = $('.image-container img');
+
+            images.each(function() {
+                let width = $(this).width();
+                let height = $(this).height();
+
+                let aspectRatio = width / height;
+
+                if (aspectRatio > 1) {
+                    $(this).css({
+                        translate: '0 0'
+                    });
+                } else {
+                    $(this).css({
+                        translate: '0 -25%'
+                    });
+                }
+            })
+
         });
 
     </script>
@@ -154,7 +189,11 @@
                     <div class="home-slider major-caousel owl-carousel mb-5" data-aos="fade-up" data-aos-delay="200">
                         @foreach($room->images as $roomImage)
                             <div class="slider-item">
-                                <a href="{{asset(env('ROOM_IMAGES_UPLOAD_PATH').$roomImage->image)}}" data-fancybox="images" data-caption="Caption for this image"><img src="{{asset(env('ROOM_IMAGES_UPLOAD_PATH').$roomImage->image)}}" alt="Image placeholder" class="img-fluid"></a>
+                                <a href="{{asset(env('ROOM_IMAGES_UPLOAD_PATH').$roomImage->image)}}" data-fancybox="images" data-caption="Caption for this image">
+                                    <div class="image-container">
+                                        <img src="{{asset(env('ROOM_IMAGES_UPLOAD_PATH').$roomImage->image)}}" alt="Image placeholder" class="img-fluid">
+                                    </div>
+                                </a>
                             </div>
                         @endforeach
                     </div>

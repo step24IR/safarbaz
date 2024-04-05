@@ -46,6 +46,21 @@
             background: rgba(0,0,0,1);
             transform: translate(-50%, -50%);
         }
+        .image-container
+        {
+            background-color: red;
+            width: 100%;
+            padding-top: 56.25%;
+            position: relative;
+        }
+        .image-container img
+        {
+            position: absolute;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            right: 0;
+        }
     </style>
 @endsection
 
@@ -143,6 +158,24 @@
                 $('#message').remove();
             }, 10000);
 
+            let images = $('.image-container img');
+
+            images.each(function() {
+                let width = $(this).width();
+                let height = $(this).height();
+
+                let aspectRatio = width / height;
+
+                if (aspectRatio > 1) {
+                    $(this).css({
+                        translate: '0 0'
+                    });
+                } else {
+                    $(this).css({
+                        translate: '0 -25%'
+                    });
+                }
+            })
         });
     </script>
 @endsection
@@ -262,7 +295,9 @@
                         <div class="testimonial text-center slider-item">
                             <a href="{{route('home.room.show' , ['room' => $room->id])}}" class="room">
                                 <figure class="img-wrap">
-                                    <img src="{{asset(env('ROOM_IMAGES_UPLOAD_PATH').$room->images()->first()->image)}}" alt="Free website template" class="img-fluid mb-3">
+                                    <div class="image-container">
+                                        <img src="{{asset(env('ROOM_IMAGES_UPLOAD_PATH').$room->images()->first()->image)}}" alt="Free website template" class="img-fluid mb-3">
+                                    </div>
                                 </figure>
                                 <div class="p-3 text-center room-info">
                                     <h2>{{$room->name}}</h2>
@@ -290,7 +325,11 @@
                     <div class="home-slider major-caousel owl-carousel mb-5" data-aos="fade-up" data-aos-delay="200">
                         @foreach($roomImages as $roomImage)
                             <div class="slider-item">
-                                <a href="{{asset(env('ROOM_IMAGES_UPLOAD_PATH').$roomImage->image)}}" data-fancybox="images" data-caption="Caption for this image"><img src="{{asset(env('ROOM_IMAGES_UPLOAD_PATH').$roomImage->image)}}" alt="Image placeholder" class="img-fluid"></a>
+                                <a href="{{asset(env('ROOM_IMAGES_UPLOAD_PATH').$roomImage->image)}}" data-fancybox="images" data-caption="Caption for this image">
+                                    <div class="image-container">
+                                        <img src="{{asset(env('ROOM_IMAGES_UPLOAD_PATH').$roomImage->image)}}" alt="Image placeholder" class="img-fluid">
+                                    </div>
+                                </a>
                             </div>
                         @endforeach
                     </div>
@@ -314,7 +353,11 @@
                 @foreach($posts as $post)
                     <div class="col-lg-4 col-md-6 col-sm-6 col-12 post" data-aos="fade-up" data-aos-delay="300">
                         <div class="media media-custom d-block mb-4 h-100">
-                            <a href="{{route('home.posts.show' , ['post' => $post->id])}}" class="mb-4 d-block"><img src="{{asset(env('BLOG_IMAGES_UPLOAD_PATH').$post->image)}}" alt="Image placeholder" class="img-fluid"></a>
+                            <a href="{{route('home.posts.show' , ['post' => $post->id])}}" class="mb-4 d-block">
+                                <div class="image-container">
+                                    <img src="{{asset(env('BLOG_IMAGES_UPLOAD_PATH').$post->image)}}" alt="Image placeholder" class="img-fluid">
+                                </div>
+                            </a>
                             <div class="media-body text-right">
                                 <span class="meta-post">{{verta($post->updated_at)->format('Y-m-d')}}</span>
                                 <h2 class="mt-0 mb-3"><a href="{{route('home.posts.show' , ['post' => $post->id])}}">{{$post->title}}</a></h2>
