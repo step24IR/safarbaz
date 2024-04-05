@@ -48,19 +48,27 @@
         }
         .image-container
         {
-            background-color: red;
             width: 100%;
             padding-top: 56.25%;
             position: relative;
+            overflow: hidden;
         }
         .image-container img
         {
             position: absolute;
-            top: 0;
-            left: 0;
-            bottom: 0;
-            right: 0;
+            top: 50%;
+            left: 50%;
+            translate: -50% -50%;
         }
+        .image-container img {
+            transition: .3s all ease-in-out;
+            transform: scale(1);
+            margin-bottom: 0 !important;
+        }
+        .room:hover .image-container img, .room:focus .image-container img {
+            transform: scale(1.05);
+        }
+
     </style>
 @endsection
 
@@ -157,25 +165,6 @@
             setTimeout(function() {
                 $('#message').remove();
             }, 10000);
-
-            let images = $('.image-container img');
-
-            images.each(function() {
-                let width = $(this).width();
-                let height = $(this).height();
-
-                let aspectRatio = width / height;
-
-                if (aspectRatio > 1) {
-                    $(this).css({
-                        translate: '0 0'
-                    });
-                } else {
-                    $(this).css({
-                        translate: '0 -25%'
-                    });
-                }
-            })
         });
     </script>
 @endsection
@@ -294,10 +283,8 @@
                     @foreach($rooms as $room)
                         <div class="testimonial text-center slider-item">
                             <a href="{{route('home.room.show' , ['room' => $room->id])}}" class="room">
-                                <figure class="img-wrap">
-                                    <div class="image-container">
-                                        <img src="{{asset(env('ROOM_IMAGES_UPLOAD_PATH').$room->images()->first()->image)}}" alt="Free website template" class="img-fluid mb-3">
-                                    </div>
+                                <figure class="image-container">
+                                    <img src="{{asset(env('ROOM_IMAGES_UPLOAD_PATH').$room->images()->first()->image)}}" alt="Free website template" class="img-fluid mb-3">
                                 </figure>
                                 <div class="p-3 text-center room-info">
                                     <h2>{{$room->name}}</h2>

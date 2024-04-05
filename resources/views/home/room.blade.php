@@ -15,19 +15,17 @@
         }
         .image-container
         {
-            background-color: red;
             width: 100%;
             padding-top: 56.25%;
             position: relative;
-            /*transform: translate(0, -50%);*/
+            overflow: hidden;
         }
         .image-container img
         {
             position: absolute;
-            top: 25%;
-            left: 0;
-            bottom: 0;
-            right: 0;
+            top: 50%;
+            left: 50%;
+            translate: -50% -50%;
         }
     </style>
 @endsection
@@ -100,25 +98,6 @@
             setTimeout(function() {
                 $('#message').remove();
             }, 10000);
-
-            let images = $('.image-container img');
-
-            images.each(function() {
-                let width = $(this).width();
-                let height = $(this).height();
-
-                let aspectRatio = width / height;
-
-                if (aspectRatio > 1) {
-                    $(this).css({
-                        translate: '0 0'
-                    });
-                } else {
-                    $(this).css({
-                        translate: '0 -25%'
-                    });
-                }
-            })
 
         });
 
