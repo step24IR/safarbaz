@@ -58,7 +58,7 @@
             position: absolute;
             top: 50%;
             left: 50%;
-            translate: -50% -50%;
+            transform: translate(-50%, -50%);
         }
         .image-container img {
             transition: .3s all ease-in-out;
