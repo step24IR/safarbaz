@@ -60,14 +60,14 @@
             left: 50%;
             transform: translate(-50%, -50%);
         }
-        .image-container img {
-            transition: .3s all ease-in-out;
-            transform: scale(1);
-            margin-bottom: 0 !important;
-        }
-        .room:hover .image-container img, .room:focus .image-container img {
-            transform: scale(1.05);
-        }
+        /*.room .image-container img {*/
+        /*    transition: .3s all ease-in-out;*/
+        /*    transform: scale(1);*/
+        /*    margin-bottom: 0 !important;*/
+        /*}*/
+        /*.room:hover .image-container img, .room:focus .image-container img {*/
+        /*    transform: scale(1.05);*/
+        /*}*/
     </style>
 @endsection
 
