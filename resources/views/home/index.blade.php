@@ -191,7 +191,7 @@
         </div>
     @endif
 
-    <section class="site-hero inner-page overlay" style="background-image: url('{{asset('HomeAssets/images/hero_4.jpg')}}')" data-stellar-background-ratio="0.5">
+    <section class="site-hero inner-page overlay" style="background-image: url('{{asset('HomeAssets/images/hero_5.jpg')}}')" data-stellar-background-ratio="0.5">
         <div class="container">
             <div class="row site-hero-inner justify-content-center align-items-center">
                 <div class="col-md-10 text-center" data-aos="fade">
@@ -356,7 +356,7 @@
             </div>
         </div>
     </section>
-    <section class="section bg-image overlay" style="background-image: url('{{asset('HomeAssets/images/hero_4.jpg')}}');">
+    <section class="section bg-image overlay" style="background-image: url('{{asset('HomeAssets/images/hero_5.jpg')}}');">
         <div class="container" >
             <div class="row align-items-center">
                 <div class="col-12 col-md-6 text-center mb-4 mb-md-0 text-md-right" data-aos="fade-up">

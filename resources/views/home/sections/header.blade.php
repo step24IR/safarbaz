@@ -16,9 +16,9 @@
                             <div class="row full-height align-items-center">
                                 <div class="col-md-6 mx-auto">
                                     <ul class="list-unstyled menu">
-                                        <li class="{{request()->routeIs('home.index') ? 'active' : ''}}" ><a href="{{route('home.index')}}">خانه</a></li>
-                                        <li class="{{request()->routeIs('home.room.index') ? 'active' : ''}}" ><a href="{{route('home.room.index')}}">اقامتگاه ها</a></li>
-                                        <li class="{{request()->routeIs('home.posts') ? 'active' : ''}}" ><a href="{{route('home.posts')}}">مقالات</a></li>
+                                        <li class="{{request()->is('') ? 'active' : ''}}" ><a href="{{route('home.index')}}">خانه</a></li>
+                                        <li class="{{request()->is('rooms') ? 'active' : ''}}" ><a href="{{route('home.room.index')}}">اقامتگاه ها</a></li>
+                                        <li class="{{request()->is('posts') ? 'active' : ''}}" ><a href="{{route('home.posts')}}">مقالات</a></li>
                                         @if($isBlog)
                                             @foreach(\App\Models\Category::where('parent_id' , 0)->get() as $category)
                                                 @if($category->children->count() > 0)
@@ -28,12 +28,12 @@
                                                         </a>
                                                         <div class="dropdown-menu">
                                                             @foreach($category->children as $childCategory)
-                                                                <a class="{{request()->routeIs('home.posts.category', ['category' => $category->slug]) ? 'active' : ''}}" class="dropdown-item" href="{{route('home.posts.category' , ['category' => $childCategory->slug])}}">{{$childCategory->name}}</a>
+                                                                <a class="{{request()->is('category/'.$childCategory->slug) ? 'active' : ''}}" class="dropdown-item" href="{{route('home.posts.category' , ['category' => $childCategory->slug])}}">{{$childCategory->name}}</a>
                                                             @endforeach
                                                         </div>
                                                     </li>
                                                 @else
-                                                    <li class="{{request()->routeIs('home.posts.category', ['category' => $category->slug]) ? 'active' : ''}}" ><a href="{{route('home.posts.category' , ['category' => $category->slug])}}">{{$category->name}}</a></li>
+                                                    <li class="{{request()->is('category/'.$category->slug) ? 'active' : ''}}" ><a href="{{route('home.posts.category' , ['category' => $category->slug])}}">{{$category->name}}</a></li>
                                                 @endif
                                             @endforeach
                                         @endif
