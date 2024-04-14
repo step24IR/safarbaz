@@ -22,9 +22,9 @@
                 </ul>
             </div>
             <div class="col-md-3 mb-5 pl-md-5 contact-info text-center text-md-right">
-                                <p><span class="d-block"><span class="ion-ios-location h5 ml-3 text-primary"></span>ادرس:</span> <span> پیزوری 10,  پلاک 75</span></p>
-                <p><span class="d-block"><span class="ion-ios-telephone h5 ml-3 text-primary"></span>شماره تماس:</span> <span> 9350909099 (98+)</span></p>
-                <p><span class="d-block"><span class="ion-ios-email h5 ml-3 text-primary"></span>ایمیل:</span> <span> info@domain.com</span></p>
+                                <p><span class="d-block"><span class="ion-ios-location h5 ml-3 text-primary"></span>ادرس:</span> <span> کلات , زاوین , ارتکند</span></p>
+                <p><span class="d-block"><span class="ion-ios-telephone h5 ml-3 text-primary"></span>شماره تماس:</span> <span> 09300361156</span></p>
+                <p><span class="d-block"><span class="ion-ios-email h5 ml-3 text-primary"></span>ایمیل:</span> <span> khmck6@gmail.com</span></p>
             </div>
             <div class="col-md-3 mb-5 text-center text-md-right">
                 <p class="text-right">ثبت نام برای خبرنامه</p>

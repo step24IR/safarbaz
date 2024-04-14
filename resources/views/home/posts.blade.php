@@ -1,8 +1,15 @@
 @extends('home.layouts.home' , ['isBlog' => true])
 
-@section('title' , 'مقالات')
+@section('title' , 'سفرباز | نمایش مقالات')
+
+@section('meta_tags')
+    <meta name="description" content="با سفرباز به گشت و گذار در دنیای جذاب مقالات گردشگری مشهد بپردازید. در این بخش می توانید مقالاتی متنوع و خواندنی راجع به جاذبه های گردشگری، فرهنگ و تاریخ مشهد، بهترین زمان سفر به مشهد، غذاهای محلی و ... مطالعه کنید." />
+    <meta name="keywords" content="مقالات گردشگری مشهد، جاذبه های گردشگری مشهد، فرهنگ مشهد، تاریخ مشهد، بهترین زمان سفر به مشهد، غذاهای محلی مشهد،
+     سوغات مشهد، اقامت در مشهد، حمل و نقل در مشهد، گردشگری مذهبی مشهد، گردشگری تفریحی مشهد، گردشگری طبیعت گردی مشهد">
+@endsection
 
 @section('head')
+
     <style>
         .image-container
         {
@@ -29,7 +36,7 @@
         <div class="container">
             <div class="row site-hero-inner justify-content-center align-items-center">
                 <div class="col-md-10 text-center" data-aos="fade">
-                    <h1 class="heading mb-3">اجاره ویلا و سوئیت در مشهد</h1>
+                    <h1 class="heading mb-3">اجاره سوئیت و اقامتگاه بوم گردی در مناطق گردشگری مشهد</h1>
                     <ul class="custom-breadcrumbs mb-4">
                         <li><a href="{{route('home.index')}}">خانه</a></li>
                         <li>&bullet;</li>

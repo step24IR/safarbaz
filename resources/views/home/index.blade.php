@@ -1,6 +1,20 @@
 @extends('home.layouts.home' , ['isBlog' => false])
 
-@section('title' , 'خانه')
+@section('title' , 'خانه | اجاره سوئیت و اقامتگاه بوم گردی در مناطق گردشگری مشهد')
+
+@section('meta_tags')
+    <meta name="description" content="بهترین اقامتگاه های بوم گردی و سوئیت های مشهد را در سفرباز جستجو کنید. با امکانات کامل، قیمت مناسب و دسترسی آسان به جاذبه های گردشگری مشهد، سفری خاطره انگیز را برای خود رقم بزنید." />
+    <meta name="keywords" content="اجاره سوئیت مشهد، اقامتگاه بوم گردی مشهد، مناطق گردشگری مشهد، اجاره سوئیت ارزان مشهد،
+    اقامتگاه بوم گردی ارزان مشهد، اجاره سوئیت در مناطق ییلاقی مشهد، اجاره سوئیت در مناطق خوش آب و هوا مشهد،
+     اقامتگاه بوم گردی در مناطق طبیعی مشهد، اجاره سوئیت در طرقبه، اجاره سوئیت در شاندیز،
+      اجاره سوئیت در نغندر، اجاره سوئیت در حصار گل، اجاره سوئیت در زشک، اجاره سوئیت در کنعان،
+       اجاره سوئیت در خلج، اجاره سوئیت در توس، اجاره سوئیت در فریمان، اجاره سوئیت در احمدآباد،
+       اجاره سوئیت در شاندیز، اجاره سوئیت در طرقبه، اجاره سوئیت در باخرز، اجاره سوئیت در تربت حیدریه،
+       اجاره سوئیت در کاشمر، اجاره سوئیت در بردسکن،
+        اجاره سوئیت در سبزوار، اجاره سوئیت در جوین، اجاره سوئیت در داورزن، اجاره سوئیت در گناباد،
+        اجاره سوئیت در بجستان، اجاره سوئیت در مهولات، اجاره سوئیت در خلیل آباد، اجاره سوئیت در فیروزه،
+       اجاره سوئیت در قوچان، اجاره سوئیت در چناران، اجاره سوئیت در سرخس، اجاره سوئیت در مشهد">
+@endsection
 
 @section('head')
     <style>
@@ -73,7 +87,7 @@
 @endsection
 
 @section('scripts')
-    <script>
+    <script type="module">
         $(document).ready(function() {
             let cities =@json($cities);
 
@@ -134,7 +148,7 @@
                 // `data.text` is the text that is displayed for the data object
                 if (data.text.indexOf(params.term) > -1) {
                     var modifiedData = $.extend({}, data, true);
-                    modifiedData.text += ' (matched)';
+                    // modifiedData.text += ' (matched)';
 
                     // You can return modified objects from here
                     // This includes matching the `children` how you want in nested data sets
@@ -196,7 +210,7 @@
             <div class="row site-hero-inner justify-content-center align-items-center">
                 <div class="col-md-10 text-center" data-aos="fade">
                     <span class="custom-caption text-uppercase text-white d-block  mb-3">به سفرباز خوش امدید</span>
-                    <h1 class="heading mb-3">اجاره ویلا و سوئیت در مشهد</h1>
+                    <h1 class="heading mb-3">اجاره سوئیت و اقامتگاه بوم گردی در مناطق گردشگری مشهد</h1>
                     <ul class="custom-breadcrumbs mb-4">
                     </ul>
                 </div>
@@ -259,8 +273,8 @@
                                 <img src="{{asset('HomeAssets/images/img_1.jpg')}}" alt="Image" class="img-fluid rounded">
                             </div>
                             <div class="col-md-12 col-lg-4 order-lg-2 mt-lg-0 mt-5" data-aos="fade-up">
-                                <h2 class="heading">خوش امدید!</h2>
-                                <p class="mb-4">سفرباز سامانه اجاره اقامتگاه برای مسافران است و هدف از ایجاد سفرباز ترویج سفرهای اقتصادی، مناسب برای تمام افراد جامعه و گردشگران است. در همین راستا تلاش می‌کنیم اقامتگاه‌هایی امن را با کم‌ترین هزینه در اختیار کاربران قرار دهیم.</p>
+                                <h2 class="heading">معرفی سفرباز</h2>
+                                <p class="mb-4">بهترین اقامتگاه های بوم گردی و سوئیت های مشهد را در <strong class="bold">سفرباز</strong> جستجو کنید. با امکانات کامل، قیمت مناسب و دسترسی آسان به جاذبه های گردشگری مشهد، سفری خاطره انگیز را برای خود رقم بزنید.</p>
 {{--                                <p><a href="#" class="btn btn-primary text-white py-2 mr-3">بیشتر...</a></p>--}}
                             </div>
                         </div>

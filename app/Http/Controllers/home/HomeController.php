@@ -18,7 +18,7 @@ class HomeController extends Controller
     {
         $cities = City::pluck('name');
         $cities = $cities->merge(Room::groupBy('village')->pluck('village'));
-        $roomImages = RoomImage::inRandomOrder()->limit(7)->get();
+        $roomImages = RoomImage::inRandomOrder()->limit(6)->get();
         $rooms = Room::latest()->limit(6)->get();
         $posts = Post::where('published' , 1)->latest()->limit(3)->get();
 

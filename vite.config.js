@@ -9,7 +9,8 @@ export default defineConfig({
     plugins: [
         laravel({
             input: ['resources/scss/admin/admin.scss', 'resources/js/admin/admin.js'
-                , 'resources/css/admin/ckeditor.css', 'resources/js/admin/ckeditor.js'],
+                , 'resources/css/admin/ckeditor.css', 'resources/js/admin/ckeditor.js'
+                , 'resources/scss/home/home.scss', 'resources/js/home/home.js'],
             refresh: true,
         }),
         ckeditor5({

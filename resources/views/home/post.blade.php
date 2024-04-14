@@ -1,6 +1,9 @@
 @extends('home.layouts.home' , ['isBlog' => true])
 
-@section('title' , 'مقاله')
+@section('title' , 'سفرباز | '.$post->title)
+@section('meta_tags')
+
+@endsection
 
 @section('head')
     <style>

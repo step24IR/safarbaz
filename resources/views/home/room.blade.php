@@ -1,6 +1,9 @@
 @extends('home.layouts.home' , ['isBlog' => false])
 
-@section('title' , 'اقامتگاه')
+@section('title' , 'سفرباز | '.$room->name)
+@section('meta_tags')
+
+@endsection
 
 @section('head')
     <style>
@@ -339,7 +342,7 @@
                 </div>
               </div>
             </form>
-            <div class="d-flex justify-content-between"><span>شماره تلفن جهت رزرو به صورت تلفنی:</span><span>0935999999999</span> </div>
+            <div class="d-flex justify-content-between"><span>شماره تلفن جهت رزرو به صورت تلفنی:</span><span>09300361156</span> </div>
             </div>
         </div>
       </div>
