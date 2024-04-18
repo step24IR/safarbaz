@@ -1,4 +1,4 @@
-@extends('home.layouts.home' , ['isBlog' => true])
+@extends('home.layouts.home')
 
 @section('title' , 'سفرباز | نمایش مقالات')
 
@@ -24,6 +24,13 @@
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
+        }
+        .category-section{
+            /*border-bottom: 1px solid #FDBC7B;*/
+        }
+
+        .media{
+            /*font-size: 1em;*/
         }
     </style>
 @endsection
@@ -56,26 +63,52 @@
 
     <section class="section blog-post-entry bg-light" id="next">
       <div class="container">
-
-        <div class="row text-right">
-            @foreach($posts as $post)
-                <div class="col-lg-4 col-md-6 col-sm-6 col-12 post mb-5" data-aos="fade-up" data-aos-delay="300">
-                    <div class="media media-custom d-block mb-4 h-100">
-                        <a href="{{route('home.posts.show' , ['post' => $post->id])}}" class="mb-4 d-block">
-                            <div class="image-container">
-                                <img src="{{asset(env('BLOG_IMAGES_UPLOAD_PATH').$post->image)}}" alt="Image placeholder" class="img-fluid">
-                            </div>
-                        </a>
-                        <div class="media-body">
-                            <h2 class="mt-0 mb-3"><a href="{{route('home.posts.show' , ['post' => $post->id])}}">{{$post->title}}</a></h2>
-                            <span class="meta-post">{{verta($post->updated_at)->format('Y-m-d')}}</span>
-                            <p>{!! \Illuminate\Support\Str::limit($post->text, 90, '...') !!}</p>
-                        </div>
-                    </div>
+        <div class="row">
+            <div class="col-lg-4 col-md-6 mb-3 category-section">
+                <div class="p-3 text-right">
+                    <h3 class="mb-3">دسته بندی ها</h3>
+                    <ul class="list-unstyled pr-0">
+                        @foreach(\App\Models\Category::where('parent_id' , 0)->get() as $category)
+                            @if($category->children->count() > 0)
+                                <li class="dropdown mb-3">
+                                    <a class="dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-expanded="false">
+                                        {{$category->name}}
+                                    </a>
+                                    <div class="dropdown-menu">
+                                        @foreach($category->children as $childCategory)
+                                            <a class="{{request()->is('category/'.$childCategory->slug) ? 'active' : ''}}" class="dropdown-item" href="{{route('home.posts.category' , ['category' => $childCategory->slug])}}">{{$childCategory->name}}</a>
+                                        @endforeach
+                                    </div>
+                                </li>
+                            @else
+                                <li class="{{request()->is('category/'.$category->slug) ? 'active' : ''}} mb-3" ><a href="{{route('home.posts.category' , ['category' => $category->slug])}}">{{$category->name}}</a></li>
+                            @endif
+                        @endforeach
+                    </ul>
                 </div>
-            @endforeach
+            </div>
+            <div class="col-lg-8 col-md-6 mb-3">
+                <div class="row text-right mx-2">
+                    @foreach($posts as $post)
+                        <div class="col-lg-6 col-12 post mb-5" data-aos="fade-up" data-aos-delay="300">
+                            <div class="media media-custom d-block mb-4 h-100">
+                                <a href="{{route('home.posts.show' , ['post' => $post->id])}}" class="mb-4 d-block">
+                                    <div class="image-container">
+                                        <img src="{{asset(env('BLOG_IMAGES_UPLOAD_PATH').$post->image)}}" alt="Image placeholder" class="img-fluid">
+                                    </div>
+                                </a>
+                                <div class="media-body">
+                                    <h2 class="mt-0 mb-3"><a href="{{route('home.posts.show' , ['post' => $post->id])}}">{{$post->title}}</a></h2>
+                                    <span class="meta-post">{{verta($post->updated_at)->format('Y-m-d')}}</span>
+                                    <p>{!! \Illuminate\Support\Str::limit($post->text, 90, '...') !!}</p>
+                                </div>
+                            </div>
+                        </div>
+                    @endforeach
+                </div>
+                {{$posts->onEachSide(3)->links('home.sections.pagination')}}
+            </div>
         </div>
-          {{$posts->onEachSide(3)->links('home.sections.pagination')}}
 
       </div>
     </section>

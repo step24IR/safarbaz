@@ -26,7 +26,7 @@
     @yield('head')
 </head>
 <body>
-    @include('home.sections.header' , ['isBlog' => $isBlog])
+    @include('home.sections.header')
 {{--    @if (session()->has('message'))--}}
 {{--        <div class="alert alert-success d-flex justify-content-between" id="message">--}}
 {{--            {{session()->get('message')}}--}}

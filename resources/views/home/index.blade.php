@@ -1,4 +1,4 @@
-@extends('home.layouts.home' , ['isBlog' => false])
+@extends('home.layouts.home')
 
 @section('title' , 'خانه | اجاره سوئیت و اقامتگاه بوم گردی در مناطق گردشگری مشهد')
 

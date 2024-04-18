@@ -1,4 +1,4 @@
-@extends('home.layouts.home' , ['isBlog' => false])
+@extends('home.layouts.home')
 
 @section('title' , 'سفرباز | '.$room->name)
 @section('meta_tags')
