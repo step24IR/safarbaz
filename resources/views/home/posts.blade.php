@@ -64,8 +64,8 @@
     <section class="section blog-post-entry bg-light" id="next">
       <div class="container">
         <div class="row">
-            <div class="col-lg-4 col-md-6 mb-3 category-section">
-                <div class="py-4 px-5 text-md-right text-center bg-white h-100">
+            <div class="col-lg-4 col-md-6 mb-4">
+                <div class="py-4 px-5 text-md-right text-center bg-white h-100 mx-4 mx-md-0" data-aos="fade-up" data-aos-delay="300">
                     <h3 class="mb-4 text-center">دسته بندی ها</h3>
                     <ul class="list-unstyled pr-0">
                         @foreach(\App\Models\Category::where('parent_id' , 0)->get() as $category)
@@ -86,7 +86,6 @@
                         @endforeach
                     </ul>
                 </div>
-                <hr class="d-block d-md-none my-3"/>
             </div>
             <div class="col-lg-8 col-md-6 mb-3">
                 <div class="row text-right mx-2">
