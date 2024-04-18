@@ -259,7 +259,7 @@
                                             {{$room->number_of_wc_iranian ? $room->number_of_wc_iranian . ' سرویس ایرانی,' : ''}}
                                             {{$room->number_of_wc_frangi ? $room->number_of_wc_frangi . ' سرویس فرنگی,' : ''}}
                                             {{$room->number_of_tub_bathroom ? $room->number_of_tub_bathroom . ' حمام با وان,' : ''}}
-                                            {{$room->number_of_normal_bathroom ? $room->number_of_normal_bathroom . ' حمام معمولی,' : ''}}
+                                            {{$room->number_of_normal_bathroom ? $room->number_of_normal_bathroom . ' حمام معمولی' : ''}}
                                         </p>
                                     </div>
                                 </li>
