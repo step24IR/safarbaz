@@ -288,8 +288,10 @@
         <div class="container">
             <div class="row justify-content-center text-center mb-5">
                 <div class="col-md-7">
-                    <h2 class="heading" data-aos="fade-up">اقامتگاه ها</h2>
-                    <p data-aos="fade-up" data-aos-delay="100">اخرین اقامتگاه ها</p>
+                    <a href="{{route('home.room.index')}}" class="text-dark">
+                        <h2 class="heading" data-aos="fade-up">اقامتگاه ها</h2>
+                        <p data-aos="fade-up" data-aos-delay="100">اخرین اقامتگاه ها</p>
+                    </a>
                 </div>
             </div>
             <div class="row">
@@ -317,8 +319,10 @@
         <div class="container">
             <div class="row justify-content-center text-center mb-5">
                 <div class="col-md-7">
-                    <h2 class="heading" data-aos="fade-up">عکس ها</h2>
-                    <p data-aos="fade-up" data-aos-delay="100">تصاویری از اقامتگاه های ما</p>
+                    <a href="{{route('home.room.index')}}" class="text-dark">
+                        <h2 class="heading" data-aos="fade-up">عکس ها</h2>
+                        <p data-aos="fade-up" data-aos-delay="100">تصاویری از اقامتگاه های ما</p>
+                    </a>
                 </div>
             </div>
             <div class="row">
@@ -346,8 +350,9 @@
         <div class="container">
             <div class="row justify-content-center text-center mb-5">
                 <div class="col-md-7">
-                    <h2 class="heading" data-aos="fade-up">مقالات</h2>
-{{--                    <p data-aos="fade-up" data-aos-delay="100">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و با استفاده از طراحان گرافیک است، چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است.</p>--}}
+                    <a href="{{route('home.posts')}}" class="text-dark">
+                        <h2 class="heading" data-aos="fade-up">مقالات</h2>
+                    </a>
                 </div>
             </div>
             <div class="row">
