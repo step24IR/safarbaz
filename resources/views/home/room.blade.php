@@ -30,6 +30,18 @@
             left: 50%;
             transform: translate(-50%, -50%);
         }
+        .description
+        {
+            border-top: 1px solid rgba(99, 99, 99, 0.2);
+        }
+        .description-text
+        {
+            padding-right: 40px;
+        }
+        .main-facility
+        {
+            border-top: 1px solid rgba(99, 99, 99, 0.2);
+        }
     </style>
 @endsection
 
@@ -197,7 +209,7 @@
             <div class="col-md-7" data-aos="fade-up">
                 <div class="row">
                     <div class="col-md-10 ml-auto">
-                        <p>
+                        <p class="main-info">
                             <h3 class="mb-4">درباره اقامتگاه:</h3>
                             <ul class="list-unstyled">
                                 <li class="mb-4">
@@ -260,17 +272,15 @@
                                     </li>
                                 @endif
                             </ul>
-                            <hr>
                         </p>
                         @if($room->description)
-                            <p>
+                            <p class="description">
                                 <h3 class="mb-4">توضیحات:</h3>
-                                <p class="mr-3">{!! $room->description !!}</p>
-                                <hr>
+                                <div class="description-text">{!! $room->description !!}</div>
                             </p>
                         @endif
                         @if($room->facilityValues->count() > 0 )
-                            <p>
+                            <p class="main-facility">
                                 <h3 class="mb-4">امکانات اقامتگاه:</h3>
                                 <ul class="list-unstyled">
                                     @foreach($facilities as $facility)
@@ -278,7 +288,7 @@
                                             <li class="mb-4">
                                                 <div>
                                                     <h5>{{$facility->name}}</h5>
-                                                    <p class="p-0 m-0">{{implode("," , $room->facilityValues()->where('facility_id' , $facility->id)->pluck('value')->toArray())}}</p>
+                                                    <div class="description-text">{{implode("," , $room->facilityValues()->where('facility_id' , $facility->id)->pluck('value')->toArray())}}</div>
                                                 </div>
                                             </li>
                                         @endif
