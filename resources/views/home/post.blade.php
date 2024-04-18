@@ -93,7 +93,7 @@
                 <hr class="d-block d-lg-none my-3"/>
             </div>
             <div class="col-lg-9">
-                <div class="pl-4">
+                <div class="pl-lg-4">
                     <h1 class="my-4 text-center">{{$post->title}}</h1>
                     <p>{!! $post->text !!}</p>
                     <div class="mt-5">
