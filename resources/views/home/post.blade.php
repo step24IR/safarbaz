@@ -69,7 +69,7 @@
     <div class="container text-right ">
         <div class="row">
             <div class="col-lg-3 mb-3 mt-5">
-                <div class="p-3 text-right">
+                <div class="p-3 text-lg-right text-center">
                     <h3 class="mb-3">دسته بندی ها</h3>
                     <ul class="list-unstyled pr-0">
                         @foreach(\App\Models\Category::where('parent_id' , 0)->get() as $category)
@@ -90,6 +90,7 @@
                         @endforeach
                     </ul>
                 </div>
+                <hr class="d-block d-lg-none my-3"/>
             </div>
             <div class="col-lg-9">
                 <div class="pl-4">
