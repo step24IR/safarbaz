@@ -80,12 +80,12 @@
                                     </a>
                                     <div class="dropdown-menu">
                                         @foreach($category->children as $childCategory)
-                                            <a class="{{request()->is('category/'.$childCategory->slug) ? 'active' : ''}}" class="dropdown-item" href="{{route('home.posts.category' , ['category' => $childCategory->slug])}}">{{$childCategory->name}}</a>
+                                            <a class="{{request()->is('category/'.$childCategory->slug) ? 'text-primary' : 'text-dark'}}" class="dropdown-item" href="{{route('home.posts.category' , ['category' => $childCategory->slug])}}">{{$childCategory->name}}</a>
                                         @endforeach
                                     </div>
                                 </li>
                             @else
-                                <li class="{{request()->is('category/'.$category->slug) ? 'active' : ''}} mb-3" ><a href="{{route('home.posts.category' , ['category' => $category->slug])}}">{{$category->name}}</a></li>
+                                <li class="{{request()->is('category/'.$category->slug) ? 'text-primary' : 'text-dark'}} mb-3" ><a href="{{route('home.posts.category' , ['category' => $category->slug])}}">{{$category->name}}</a></li>
                             @endif
                         @endforeach
                     </ul>
