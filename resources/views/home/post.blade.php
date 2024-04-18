@@ -68,33 +68,35 @@
 
     <section class="bg-light">
         <div class="container text-right">
-            <div class="row">
-                <div class="col-lg-3 mb-4 mt-5">
+            <div class="row py-4">
+                <div class="col-lg-3 mb-4 mb-lg-0">
                     <div class="p-4 text-lg-right text-center bg-white h-100" data-aos="fade-up" data-aos-delay="300">
-                        <h3 class="mb-4 text-center">دسته بندی ها</h3>
-                        <ul class="list-unstyled pr-0">
-                            @foreach(\App\Models\Category::where('parent_id' , 0)->get() as $category)
-                                @if($category->children->count() > 0)
-                                    <li class="dropdown mb-3">
-                                        <a class="dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-expanded="false">
-                                            {{$category->name}}
-                                        </a>
-                                        <div class="dropdown-menu">
-                                            @foreach($category->children as $childCategory)
-                                                <a class="{{request()->is('category/'.$childCategory->slug) ? 'text-primary' : 'text-dark'}}" class="dropdown-item" href="{{route('home.posts.category' , ['category' => $childCategory->slug])}}">{{$childCategory->name}}</a>
-                                            @endforeach
-                                        </div>
-                                    </li>
-                                @else
-                                    <li class="mb-3" ><a class="{{request()->is('category/'.$category->slug) ? 'text-primary' : 'text-dark'}}" href="{{route('home.posts.category' , ['category' => $category->slug])}}">{{$category->name}}</a></li>
-                                @endif
-                            @endforeach
-                        </ul>
+                        <div class="">
+                            <h3 class="mb-4 text-center">دسته بندی ها</h3>
+                            <ul class="list-unstyled pr-0">
+                                @foreach(\App\Models\Category::where('parent_id' , 0)->get() as $category)
+                                    @if($category->children->count() > 0)
+                                        <li class="dropdown mb-3">
+                                            <a class="dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-expanded="false">
+                                                {{$category->name}}
+                                            </a>
+                                            <div class="dropdown-menu">
+                                                @foreach($category->children as $childCategory)
+                                                    <a class="{{request()->is('category/'.$childCategory->slug) ? 'text-primary' : 'text-dark'}}" class="dropdown-item" href="{{route('home.posts.category' , ['category' => $childCategory->slug])}}">{{$childCategory->name}}</a>
+                                                @endforeach
+                                            </div>
+                                        </li>
+                                    @else
+                                        <li class="mb-3" ><a class="{{request()->is('category/'.$category->slug) ? 'text-primary' : 'text-dark'}}" href="{{route('home.posts.category' , ['category' => $category->slug])}}">{{$category->name}}</a></li>
+                                    @endif
+                                @endforeach
+                            </ul>
+                        </div>
                     </div>
                 </div>
                 <div class="col-lg-9">
-                    <div class="pr-lg-4" data-aos="fade-up" data-aos-delay="300">
-                        <h1 class="my-4 text-center">{{$post->title}}</h1>
+                    <div class="pr-lg-4 bg-white" data-aos="fade-up" data-aos-delay="300">
+                        <h1 class="py-4 text-center">{{$post->title}}</h1>
                         <p>{!! $post->text !!}</p>
                         <div class="mt-5">
                             <p>
