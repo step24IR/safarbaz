@@ -61,9 +61,9 @@
     </section>
     <!-- END section -->
 
-    <section class="section blog-post-entry bg-light" id="next">
+    <section class="blog-post-entry bg-light" id="next">
         <div class="container">
-            <div class="row">
+            <div class="row py-5">
                 <div class="col-lg-4 col-md-6 mb-4 mb-md-0">
                     <div class="py-4 px-5 text-md-right text-center bg-white h-100 mx-4 mx-md-0" data-aos="fade-up" data-aos-delay="300">
                         <h3 class="mb-4 text-center">دسته بندی ها</h3>

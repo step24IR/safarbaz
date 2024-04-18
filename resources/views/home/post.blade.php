@@ -95,7 +95,7 @@
                     </div>
                 </div>
                 <div class="col-lg-9">
-                    <div class="pr-lg-4 bg-white" data-aos="fade-up" data-aos-delay="300">
+                    <div class="px-4 bg-white" data-aos="fade-up" data-aos-delay="300">
                         <h1 class="py-4 text-center">{{$post->title}}</h1>
                         <p>{!! $post->text !!}</p>
                         <div class="mt-5">
