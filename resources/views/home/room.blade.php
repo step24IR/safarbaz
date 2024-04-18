@@ -157,6 +157,8 @@
                     <ul class="custom-breadcrumbs mb-4">
                         <li><a href="{{route('home.index')}}">خانه</a></li>
                         <li>&bullet;</li>
+                        <li><a href="{{route('home.room.index')}}">اقامتگاه ها</a></li>
+                        <li>&bullet;</li>
                         <li>{{$room->name}}</li>
                     </ul>
                 </div>

@@ -64,6 +64,26 @@
     @endif
 
     <section class="site-hero inner-page overlay" style="background-image: url('{{asset(env('BLOG_IMAGES_UPLOAD_PATH').$post->image)}}')" data-stellar-background-ratio="0.5">
+        <div class="container">
+            <div class="row site-hero-inner justify-content-center align-items-center">
+                <div class="col-md-10 text-center" data-aos="fade">
+                    <h1 class="heading mb-3">{{$post->title}}</h1>
+                    <ul class="custom-breadcrumbs mb-4">
+                        <li><a href="{{route('home.index')}}">خانه</a></li>
+                        <li>&bullet;</li>
+                        <li><a href="{{route('home.index')}}">مقالات</a></li>
+                        <li>&bullet;</li>
+                        <li>{{$post->title}}</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <a class="mouse smoothscroll" href="#next">
+            <div class="mouse-icon">
+                <span class="mouse-wheel"></span>
+            </div>
+        </a>
     </section>
 
     <section class="bg-light">
