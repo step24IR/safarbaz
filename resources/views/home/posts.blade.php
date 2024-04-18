@@ -65,8 +65,8 @@
       <div class="container">
         <div class="row">
             <div class="col-lg-4 col-md-6 mb-3 category-section">
-                <div class="p-3 text-md-right text-center">
-                    <h3 class="mb-3">دسته بندی ها</h3>
+                <div class="py-4 px-5 text-md-right text-center bg-white h-100">
+                    <h3 class="mb-4 text-center">دسته بندی ها</h3>
                     <ul class="list-unstyled pr-0">
                         @foreach(\App\Models\Category::where('parent_id' , 0)->get() as $category)
                             @if($category->children->count() > 0)
