@@ -85,7 +85,7 @@
                                     </div>
                                 </li>
                             @else
-                                <li class="{{request()->is('category/'.$category->slug) ? 'text-primary' : 'text-dark'}} mb-3" ><a href="{{route('home.posts.category' , ['category' => $category->slug])}}">{{$category->name}}</a></li>
+                                <li class="mb-3" ><a class="{{request()->is('category/'.$category->slug) ? 'text-primary' : 'text-dark'}}" href="{{route('home.posts.category' , ['category' => $category->slug])}}">{{$category->name}}</a></li>
                             @endif
                         @endforeach
                     </ul>
