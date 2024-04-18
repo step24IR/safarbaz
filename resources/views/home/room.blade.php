@@ -173,7 +173,7 @@
     </section>
     <!-- END section -->
 
-    <section class="section slider-section bg-light">
+    <section class="section slider-section bg-light" id="next">
         <div class="container">
             <div class="row justify-content-center text-center mb-5">
                 <div class="col-md-7">
@@ -200,7 +200,7 @@
     </section>
     <!-- END section -->
 
-    <section class="section contact-section" id="next">
+    <section class="section contact-section">
       <div class="container">
           <div class="row justify-content-center text-center mb-5">
               <div class="col-md-7">

@@ -86,7 +86,7 @@
         </a>
     </section>
 
-    <section class="bg-light">
+    <section class="bg-light" id="next">
         <div class="container text-right">
             <div class="row py-4">
                 <div class="col-lg-3 mb-4 mb-lg-0">
@@ -116,8 +116,8 @@
                 </div>
                 <div class="col-lg-9">
                     <div class="px-4 bg-white" data-aos="fade-up" data-aos-delay="300">
-                        <h1 class="py-4 text-center">{{$post->title}}</h1>
-                        <p>{!! $post->text !!}</p>
+{{--                        <h1 class="py-4 text-center">{{$post->title}}</h1>--}}
+                        <p class="pt-4">{!! $post->text !!}</p>
                         <div class="mt-5">
                             <p>
                                 <span class="pl-3">تگ ها :</span>
