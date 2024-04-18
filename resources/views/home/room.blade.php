@@ -288,7 +288,7 @@
                                             <li class="mb-4">
                                                 <div>
                                                     <h5>{{$facility->name}}</h5>
-                                                    <div class="description-text">{{implode("," , $room->facilityValues()->where('facility_id' , $facility->id)->pluck('value')->toArray())}}</div>
+                                                    <div>{{implode("," , $room->facilityValues()->where('facility_id' , $facility->id)->pluck('value')->toArray())}}</div>
                                                 </div>
                                             </li>
                                         @endif
